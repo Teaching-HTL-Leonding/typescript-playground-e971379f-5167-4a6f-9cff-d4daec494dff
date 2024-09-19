@@ -1,24 +1,49 @@
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(400, 200);
+  noFill(); // We only need the outlines
+  strokeWeight(10); // Set the thickness of the ring outlines
 
-  noFill()
-  strokeWeight(5)
+  // We want to use degrees, not rad. Want to learn more?
+  // https://brilliant.org/wiki/degrees-radian/
+  angleMode(DEGREES);
 
+  // Part of blue ring
   stroke("blue");
-  circle(100, 100, 50);
+  //                    +-------- start angle
+  //                    |   +---- end angle
+  //                    v   v
+  arc(100, 100, 80, 80, 45, 315);
 
+  // Parts of black ring
   stroke("black");
-  circle(160, 100, 50);
+  arc(200, 100, 80, 80, 135, 315);
+  arc(200, 100, 80, 80, 45, 90);
 
+  // Part of red ring
   stroke("red");
-  circle(220, 100, 50);
+  circle(300, 100, 80);
 
-    stroke("orange");
-  circle(130, 125, 50);
+  // Gold ring
+  stroke("gold");
+  circle(150, 140, 80);
 
-    stroke("green");
-  circle(190, 125, 50);
+  // Another part of black ring
+  stroke("black");
+  arc(200, 100, 80, 80, 90, 135);
 
-  // <<< Add your code here.
-  //     Only add code between the curly braces (`{}`).
+  // Blue ring
+  stroke("blue");
+  arc(100, 100, 80, 80, 315, 45);
+
+  // Green ring
+  stroke("green");
+  circle(250, 140, 80);
+
+  // Last part of black ring
+  stroke("black");
+  arc(200, 100, 80, 80, 315, 45);
+
+  // Part of red ring
+  stroke("red");
+  arc(300, 100, 80, 80, 90, 120);
 }
