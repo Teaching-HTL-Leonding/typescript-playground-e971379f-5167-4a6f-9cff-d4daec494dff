@@ -14,7 +14,4 @@ function setup() {
 fill("black")
     circle(35, 75, 15);
     circle(95, 75, 15);
-
-
-    
     }
