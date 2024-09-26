@@ -15,6 +15,6 @@ function mouseClicked() {
 
   fill("black");
     text(`${Math.round (mouseX)}/${Math.round (mouseY)}`, 10, 10, 100, 100);
-concat()
+
 
 }
