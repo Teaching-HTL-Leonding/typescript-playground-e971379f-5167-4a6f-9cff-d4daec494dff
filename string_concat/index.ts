@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(200, 200);
   background("lightblue");
-
+  colorMode(HSB);
 }
 
 let globalVar: string = "0/0";
@@ -17,7 +17,7 @@ function mouseClicked() {
   globalVar = `${globalVar}, ${Math.round(mouseX)}/${Math.round(mouseY)}`
 
 
-  fill("black");
+  fill(0);
   text(globalVar, 10, 10, 190, 190);
 
 
