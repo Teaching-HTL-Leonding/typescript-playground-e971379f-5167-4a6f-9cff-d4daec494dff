@@ -17,7 +17,7 @@ function mouseClicked() {
 
 
   fill("black");
-    text(globalVar, 10, 10, 100, 100);
+    text(globalVar, 10, 10, 200, 200);
 
 
 }
