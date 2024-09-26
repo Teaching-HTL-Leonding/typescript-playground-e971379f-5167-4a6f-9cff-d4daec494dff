@@ -5,8 +5,7 @@ function setup() {
     noStroke();
 }
 
-/*
-GLOBAL variable "color_hue". Although TypeScript does not require
+/* GLOBAL variable "color_hue". Although TypeScript does not require
 specifiying a data type, you MUST ALWAYS do it in this course for
 practicing purposes! */
 let color_hue: number = 0;
