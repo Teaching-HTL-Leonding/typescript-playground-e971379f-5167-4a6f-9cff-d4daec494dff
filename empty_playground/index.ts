@@ -14,7 +14,7 @@ function mouseClicked() {
   circle(mouseX, mouseY, 10);
 
   globalVar= globalVar + ", "+`${Math.round (mouseX)}/${Math.round (mouseY)}`
-
+  
   fill(0);
   text(globalVar, 10, 10, 190, 190);
 }
