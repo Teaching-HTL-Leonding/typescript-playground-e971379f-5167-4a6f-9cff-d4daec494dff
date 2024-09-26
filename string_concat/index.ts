@@ -4,7 +4,10 @@ function setup() {
 
 }
 
+//TODO: Create variable for storing current mouse position
 const str1 : string = `${Math.round (mouseX)}/${Math.round (mouseY)}`
+
+//
 
 function mouseClicked() {
   background("lightblue");
@@ -14,7 +17,7 @@ function mouseClicked() {
   circle(mouseX, mouseY, 10);
 
   fill("black");
-    text(`${Math.round (mouseX)}/${Math.round (mouseY)}`, 10, 10, 100, 100);
+    text(`TEXT`, 10, 10, 100, 100);
 
 
 }
