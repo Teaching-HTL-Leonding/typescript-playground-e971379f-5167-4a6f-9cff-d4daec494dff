@@ -16,7 +16,7 @@ function mouseClicked() {
   //globalVar= globalVar + ", "+`${Math.round (mouseX)}/${Math.round (mouseY)}`
   globalVar = `${globalVar}, ${Math.round(mouseX)}/${Math.round(mouseY)}`
 
-  textAlign(LEFT);
+
   fill("black");
   text(globalVar, 10, 10, 190, 190);
 
