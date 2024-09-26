@@ -4,7 +4,7 @@ function setup() {
 
 }
 
-let clickprotocol : string = `${Math.round (mouseX)}/${Math.round (mouseY)}`
+const str1 : string = `${Math.round (mouseX)}/${Math.round (mouseY)}`
 
 function mouseClicked() {
   background("lightblue");
@@ -14,7 +14,7 @@ function mouseClicked() {
   circle(mouseX, mouseY, 10);
 
   fill("black");
-  text(`${Math.round (mouseX)}/${Math.round (mouseY)}`, 10, 10, 100, 100);
-
+    text(`${Math.round (mouseX)}/${Math.round (mouseY)}`, 10, 10, 100, 100);
+concat()
 
 }
