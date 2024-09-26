@@ -10,7 +10,7 @@ function setup() {
 
   // Draw the robot's head
 
-  let x = Math.min(headWidth, headHeight);
+  let x: number = Math.min(headWidth, headHeight);
   fill("gray");
   rect(headX, headY, headWidth, headHeight);
 
