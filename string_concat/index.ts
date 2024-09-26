@@ -14,7 +14,7 @@ function mouseClicked() {
   circle(mouseX, mouseY, 10);
 
   fill("black");
-  text(clickprotocol, 10, 10, 100, 100);
+  text(`${Math.round (mouseX)}/${Math.round (mouseY)}`, 10, 10, 100, 100);
 
 
 }
