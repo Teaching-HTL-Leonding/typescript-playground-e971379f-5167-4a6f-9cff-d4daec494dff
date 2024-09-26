@@ -4,7 +4,6 @@ function setup() {
 
 }
 
-//TODO: Create variable for storing current mouse position
 let globalVar :string = "";
 
 function mouseClicked() {
