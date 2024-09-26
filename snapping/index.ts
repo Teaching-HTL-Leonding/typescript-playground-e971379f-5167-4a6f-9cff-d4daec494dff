@@ -16,8 +16,9 @@ function mouseMoved() {
   line(mouseX - 15, mouseY, mouseX + 15, mouseY);
   line(mouseX, mouseY - 15, mouseX, mouseY + 15);
 
+
   noStroke()
   fill("white");
   text(`${mouseX}/${mouseY}`, 5, height - 5);
-  
+
 }
