@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 300);
   background("lightgray");
 
   // Define relative sizes and positions based on canvas width and height
@@ -19,7 +19,7 @@ function setup() {
   circle(headWidth + headWidth*0.25, headHeight - headHeight*0.25, x*0.2);
 
   fill("white");
-  rect(headWidth - headWidth*0.25, headHeight + headHeight*0.2, 
+  rect(headWidth - headWidth*0.25, headHeight*1.2, 
   headWidth*0.5, headHeight*0.1)
 
   line(headWidth, headHeight*0.25, headWidth, headHeight*0.5)
