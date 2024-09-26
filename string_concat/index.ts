@@ -1,20 +1,11 @@
-//TODO: Create variable for storing current mouse position
-const str1 : string = `${Math.round (mouseX)}/${Math.round (mouseY)}`;
-
-// @ts-ignore
-declare global {
-    interface Window {
-        myGlobalVar: number;
-    }
-}
-// @ts-ignore
-window.myGlobalVar = 10;
-
 function setup() {
   createCanvas(200, 200);
   background("lightblue");
 
 }
+
+//TODO: Create variable for storing current mouse position
+let globalVar :string = "";
 
 function mouseClicked() {
   background("lightblue");
@@ -22,14 +13,12 @@ function mouseClicked() {
   noStroke();
   fill("cyan");
   circle(mouseX, mouseY, 10);
-  
-  const position =`${Math.round (mouseX)}/${Math.round (mouseY)}`;
-  // globalVar = "," + position;
-  console.log(str1)
+
+  globalVar= globalVar + ", "+`${Math.round (mouseX)}/${Math.round (mouseY)}`
+
 
   fill("black");
-  // @ts-ignore
-    text(window.myGlobalVar, 10, 10, 100, 100);
+    text(globalVar, 10, 10, 100, 100);
 
 
 }
