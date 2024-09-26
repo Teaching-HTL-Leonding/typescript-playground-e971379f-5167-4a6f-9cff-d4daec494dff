@@ -10,15 +10,17 @@ function mouseMoved() {
   background("lightblue");
 
   // Add your code here
+  let x = Math.round(mouseX/40)*40;
+  let y = Math.round(mouseY/40)*40;
 
   strokeWeight(4);
   stroke("white");
-  line(mouseX - 15, mouseY, mouseX + 15, mouseY);
-  line(mouseX, mouseY - 15, mouseX, mouseY + 15);
+  line(x - 15, y, x + 15, y);
+  line(x, y - 15, x, y + 15);
 
 
   noStroke()
   fill("white");
-  text(`${mouseX}/${mouseY}`, 5, height - 5);
+  text(`${x}/${y}`, 5, height - 5);
 
 }
