@@ -6,7 +6,7 @@ function setup() {
 }
 
 function mouseMoved() {
-        fill(mouseX, mouseY, 100);
+    fill(mouseX, mouseY, 100);
     rect(0, 0, 360, 100);
 }
 
