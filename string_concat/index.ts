@@ -4,7 +4,7 @@ function setup() {
 
 }
 
-let globalVar :string = "0/0";
+let globalVar: string = "0/0";
 
 function mouseClicked() {
   background("lightblue");
@@ -14,11 +14,11 @@ function mouseClicked() {
   circle(mouseX, mouseY, 10);
 
   //globalVar= globalVar + ", "+`${Math.round (mouseX)}/${Math.round (mouseY)}`
-  globalVar= `${globalVar}, ${Math.round (mouseX)}/${Math.round (mouseY)}`
+  globalVar = `${globalVar}, ${Math.round(mouseX)}/${Math.round(mouseY)}`
 
-
+  textAlign(LEFT);
   fill("black");
-    text(globalVar, 10, 10, 190, 190);
+  text(globalVar, 10, 10, 190, 190);
 
 
 }
