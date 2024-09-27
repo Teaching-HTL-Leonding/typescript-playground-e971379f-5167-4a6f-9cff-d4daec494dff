@@ -3,7 +3,7 @@ function setup() {
 }
 
     let x: number = 0;
-    let direction: number = +1;
+    let direction: number = +12;
 
 function draw() {
     background("yellow");
@@ -11,8 +11,13 @@ function draw() {
     x = x + direction;
 
     if(x >= width) {
-        direction = -1;
+        direction = -12;
     }
+
+    if(x <= 0) {
+        direction = +12;
+    }
+
 
     circle(x, height/2, 50);
 }
