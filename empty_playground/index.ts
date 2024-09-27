@@ -1,20 +1,18 @@
 function setup() {
-  createCanvas(200, 200);
-  background("lightblue");
-  colorMode(HSB);
+    createCanvas(400, 400);
 }
 
-let globalVar: string = "0/0";
+    let x: number = 0;
+    let direction: number = +1;
 
-function mouseClicked() {
-  background("lightblue");
+function draw() {
+    background("yellow");
 
-  noStroke();
-  fill("cyan");
-  circle(mouseX, mouseY, 10);
+    x = x + direction;
 
-  globalVar= globalVar + ", "+`${Math.round (mouseX)}/${Math.round (mouseY)}`
-  
-  fill(0);
-  text(globalVar, 10, 10, 190, 190);
+    if(x >= width) {
+        direction = -1;
+    }
+
+    circle(x, height/2, 50);
 }
