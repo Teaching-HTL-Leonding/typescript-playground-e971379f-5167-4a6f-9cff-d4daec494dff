@@ -14,7 +14,7 @@ function draw() {
         direction = -12;
     }
 
-    if(x <= 0) {
+    else if(x <= 0) {
         direction = +12;
     }
 
