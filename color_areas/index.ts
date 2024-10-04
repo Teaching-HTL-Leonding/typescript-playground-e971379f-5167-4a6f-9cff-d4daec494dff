@@ -3,6 +3,7 @@ function setup() {
     background("black");
     noStroke();
 
+    // <<< Add your code here
     fill("gold");
     rect(0, 0, width / 3, height);
 
@@ -12,13 +13,15 @@ function setup() {
     fill("red");
     rect(width - width / 3, 0, width / 3, height);
 
-    fill("black")
+    fill("black");
     rect(0, height - height / 4.5, width, height / 4.5);
-    // <<< Add your code here
 }
 
 
-function mouseMoved() {
+function mouseClicked() {
+    noStroke();
+    fill("black");
+    rect(0, height - height / 4.5, width, height / 4.5);
     let message: string;
 
     if (mouseX < width / 3) {
@@ -30,7 +33,9 @@ function mouseMoved() {
         message = "Red";
     }
 
-    stroke("white");
-    text(`${message}`, width/2, height-height/10);
+    fill("white");
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text(`${message}`, width/2, height-25);
 }
 // <<< Add the function `moveClicked` with the required code here
