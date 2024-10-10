@@ -22,9 +22,6 @@ function draw() {
   circleCenterX += direction;
   circleCenterY += directionY;
 
-  //                         +----------------------------- OR operator
-  //                         |
-  //                         v
   if (circleCenterX >= width) {
     // Reverse sign of direction (positive -> right, negative -> left)
     direction *= -1;
