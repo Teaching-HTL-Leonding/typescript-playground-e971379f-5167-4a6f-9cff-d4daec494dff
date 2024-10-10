@@ -1,6 +1,5 @@
 function setup() {
   const num = Math.floor(random(0, 64));
-  const bnum = num % 2;
 
   // Add the necessary code here
   createCanvas(400, 200);
