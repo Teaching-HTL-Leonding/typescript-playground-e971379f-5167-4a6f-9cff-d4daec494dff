@@ -21,11 +21,11 @@ function setup() {
 
   const lastDigit = num % 2;
   const numWithoutLastDigit = Math.floor(num / 10);
-  const numWithout2 = Math.floor(num/2 %2);
-  const numWo3 = Math.floor(num/2/2 %2);
-  const numWo4 = Math.floor(num/2/2/2 %2);
-  const numWo5 = Math.floor(num/2/2/2/2 %2);
-  const firstdd = Math.floor(num/2/2/2/2/2%2);
+  const numWithout2 = Math.floor(num / 2 % 2);
+  const numWo3 = Math.floor(num / 2 / 2 % 2);
+  const numWo4 = Math.floor(num / 2 / 2 / 2 % 2);
+  const numWo5 = Math.floor(num / 2 / 2 / 2 / 2 % 2);
+  const firstdd = Math.floor(num / 2 / 2 / 2 / 2 / 2 % 2);
 
   noStroke();
   fill("yellow");
