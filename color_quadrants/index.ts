@@ -30,6 +30,18 @@ function mouseClicked() {
         message = "Yellow";
     }
 
+    else if (mouseX > width/2 && mouseY < height/2) {
+        message= "Green";
+    }
+
+    else if (mouseX < width/2 && mouseY > height/2) {
+        message = "Blue";
+    }
+
+    else {
+        message = "Red";
+    }
+
     fill("white");
     textSize(30);
     textAlign(CENTER, CENTER);
