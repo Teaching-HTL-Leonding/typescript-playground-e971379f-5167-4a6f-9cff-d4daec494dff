@@ -31,7 +31,9 @@ function setup() {
   const firstd = num % 1000000;
   const firstdd = Math.floor(firstd / 100000);
 
-  noFill();
+  noStroke();
+  fill("yellow");
+  textSize(25);
   textAlign(CENTER, CENTER);
   text(lastDigit, 11.5 * width / 13, height / 2 - 7);
   text(numWithout2, 9.5 * width / 13, height / 2 - 7);
