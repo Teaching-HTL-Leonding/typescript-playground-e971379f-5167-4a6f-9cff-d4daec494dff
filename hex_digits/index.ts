@@ -77,7 +77,7 @@ function setup() {
 
   textSize(50);
   textAlign(CENTER, CENTER);
-  text(lastDigit, 5.5 * width / 7, height / 3);
-  text(numwo2, 3.5 * width / 7, height / 3);
-  text(numwo3, 1.5 * width / 7, height / 3);
+  text(lastDigit, 5.6 * width / 7, height / 3);
+  text(numwo2, 3.6 * width / 7, height / 3);
+  text(numwo3, 1.6 * width / 7, height / 3);
 }
