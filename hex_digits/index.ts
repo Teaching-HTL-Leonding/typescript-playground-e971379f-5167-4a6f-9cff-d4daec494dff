@@ -37,6 +37,7 @@ function setup() {
   else if (numwo3 === 15) {
     numwo3 = "F";
   }
+  
   if (numwo2 === 10) {
     numwo2 = "A";
   }
