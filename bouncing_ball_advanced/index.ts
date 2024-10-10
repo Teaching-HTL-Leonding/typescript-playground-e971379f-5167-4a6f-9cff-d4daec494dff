@@ -25,19 +25,24 @@ function draw() {
   //                         +----------------------------- OR operator
   //                         |
   //                         v
-  if (circleCenterX >= width || circleCenterY >= height) {
+  if (circleCenterX >= width) {
+    // Reverse sign of direction (positive -> right, negative -> left)
+    direction *= -1;
+
+  }
+  if (circleCenterY >= height) {
     // Reverse sign of direction (positive -> right, negative -> left)
     directionY *= -1;
 
   }
-  else if (circleCenterX <= 0 || circleCenterY <= 0) {
+  else if (circleCenterY <= 0) {
     // Reverse sign of direction (positive -> right, negative -> left)
-    directionY *= -2;
-    direction = -2;
+    directionY *= -1;
+  }
+  else if (circleCenterX <= 0) {
+    // Reverse sign of direction (positive -> right, negative -> left)
+    direction *= -1;
   }
 
-  else if (circleCenterX <= 0 || circleCenterY <= 0) {
-    // Reverse sign of direction (positive -> right, negative -> left)
-    directionY *= +2;
-  }
+
 }
