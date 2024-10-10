@@ -27,6 +27,8 @@ function draw() {
     // Reverse sign of direction (positive -> right, negative -> left)
     direction *= -1; 
   }
+
+  fill("lightblue");
   circle(width/2, ccY, circleDiameter);
 
     ccY += directionY;
