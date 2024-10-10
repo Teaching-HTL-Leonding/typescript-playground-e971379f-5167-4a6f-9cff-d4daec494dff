@@ -1,5 +1,5 @@
 function setup() {
-  const num = Math.floor(random(0, 4096));
+  const num = Math.floor(random(0, 64));
 
   // Add the necessary code here
   createCanvas(400, 200);
