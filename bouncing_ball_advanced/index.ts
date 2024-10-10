@@ -8,7 +8,7 @@ let circleCenterX = 0;
 let direction = 2;
 
 let circleCenterY = 0;
-let directionY = 2;
+let directionY = 3;
 
 // Remember: The _draw_ method is called FOR EVERY FRAME
 function draw() {
@@ -27,6 +27,17 @@ function draw() {
   //                         v
   if (circleCenterX >= width || circleCenterY >= height) {
     // Reverse sign of direction (positive -> right, negative -> left)
-    directionY *= -2; 
+    directionY *= -1;
+
+  }
+  else if (circleCenterX <= 0 || circleCenterY <= 0) {
+    // Reverse sign of direction (positive -> right, negative -> left)
+    directionY *= -2;
+    direction = -2;
+  }
+
+  else if (circleCenterX <= 0 || circleCenterY <= 0) {
+    // Reverse sign of direction (positive -> right, negative -> left)
+    directionY *= +2;
   }
 }
