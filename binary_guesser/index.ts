@@ -31,48 +31,52 @@ let secondn = 0;
 let first = 0;
 
 function mouseClicked() {
-  let correctn: any = "";
-  correctn = first * Math.pow(2, 3) + secondn * Math.pow(2, 2)
+
+  fill("black"); stroke("yellow");
+  rect(width / 9, height / 3, width / 9, height / 4);
+  rect(3 * width / 9, height / 3, width / 9, height / 4);
+  rect(5 * width / 9, height / 3, width / 9, height / 4);
+  rect(7 * width / 9, height / 3, width / 9, height / 4);
+
+  fill("yellow");
+  if (mouseX > width / 9 && mouseX < 2 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
+    first = (first + 1) % 2;;
+  }
+  else if (mouseX > 3 * width / 9 && mouseX < 4 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
+    secondn = (secondn + 1) % 2;
+  }
+  else if (mouseX > 5 * width / 9 && mouseX < 6 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
+    third = (third + 1) % 2;
+  }
+  else if (mouseX > 7 * width / 9 && mouseX < 8 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
+    last = (last + 1) % 2;
+  }
+
+
+  const correctn = first * Math.pow(2, 3) + secondn * Math.pow(2, 2)
     + third * Math.pow(2, 1) + last * Math.pow(2, 0);
   if (correctn === num) {
     noStroke();
     fill("lime");
     textAlign(CENTER);
     text("Correct!", width / 2, height / 4 * 3);
-  }
 
-  if (mouseX > width / 9 && mouseX < 2 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
-    fill("black"); stroke("yellow");
+    fill("black"); stroke("lime");
     rect(width / 9, height / 3, width / 9, height / 4);
-    fill("yellow");
-
-    first = (first + 1) % 2;;
-    text(`${first}`, 1.5 * width / 9, height / 2 - 7);
-  }
-  else if (mouseX > 3 * width / 9 && mouseX < 4 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
-    fill("black"); stroke("yellow");
     rect(3 * width / 9, height / 3, width / 9, height / 4);
-    fill("yellow");
-    secondn = (secondn + 1) % 2;
-    text(`${secondn}`, 3.5 * width / 9, height / 2 - 7);
-  }
-  else if (mouseX > 5 * width / 9 && mouseX < 6 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
-    fill("black"); stroke("yellow");
     rect(5 * width / 9, height / 3, width / 9, height / 4);
-    fill("yellow");
-    third = (third + 1) % 2;
-    text(`${third}`, 5.5 * width / 9, height / 2 - 7);
-  }
-  else if (mouseX > 7 * width / 9 && mouseX < 8 * width / 9 && mouseY > height / 3 && mouseY < height / 3 + height / 4) {
-    fill("black"); stroke("yellow");
     rect(7 * width / 9, height / 3, width / 9, height / 4);
-    fill("yellow");
-    last = (last + 1) % 2;
-    text(`${last}`, 7.5 * width / 9, height / 2 - 7);
+    fill("lime");
+  } else {
+    fill("yellow")
   }
 
-
+  text(`${first}`, 1.5 * width / 9, height / 2 - 7);
+  text(`${secondn}`, 3.5 * width / 9, height / 2 - 7);
+  text(`${third}`, 5.5 * width / 9, height / 2 - 7);
+  text(`${last}`, 7.5 * width / 9, height / 2 - 7);
 }
+
 
 
 /*
