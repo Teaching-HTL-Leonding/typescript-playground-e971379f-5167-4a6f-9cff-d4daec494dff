@@ -15,7 +15,7 @@ function setup() {
 
 fill("yellow");
 noStroke();
-textAlign(CENTER, height/5);
+textAlign(CENTER);
 textSize(30);
 text(`${num} in binary?`, width/2, height/5);
 
@@ -28,12 +28,19 @@ text(`${num} in binary?`, width/2, height/5);
 function mouseClicked() {
 
       let message : string;
-if(mouseX>width/9 && mouseX<3*width/9 && mouseY < height/3 && mouseY > height/4) {
+if(mouseX>width/9 && mouseX<3*width/9 && mouseY > height/3 && mouseY< height/3 + height/4) {
   message = "got it";
 }
-if(mouseX>3*width/9 && mouseX<5*width/9 && mouseY < height/3 && mouseY > height/4) {
-  message = "got it";
+else if(mouseX>3*width/9 && mouseX<5*width/9 && mouseY > height/3 && mouseY< height/3 + height/4) {
+  message = "second";
 }
+else if(mouseX>5*width/9 && mouseX<7*width/9 && mouseY > height/3 && mouseY< height/3 + height/4) {
+  message = "third";
+}
+else if(mouseX>7*width/9 && mouseX<8*width/9 && mouseY > height/3 && mouseY< height/3 + height/4) {
+  message = "fourth";
+}
+
 
 
 
