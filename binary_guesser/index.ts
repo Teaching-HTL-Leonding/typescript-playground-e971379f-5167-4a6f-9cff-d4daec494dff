@@ -68,6 +68,11 @@ function mouseClicked() {
     rect(7 * width / 9, height / 3, width / 9, height / 4);
     fill("lime");
   } else {
+    stroke("black");
+    fill("black");
+    textAlign(CENTER);
+    text("Correct!", width / 2, height / 4 * 3);
+
     fill("yellow")
   }
 
@@ -102,7 +107,6 @@ function mouseClicked() {
   textAlign(CENTER, CENTER);
   text(`${message}`, width / 2, height / 2)
 }*/
-
 
 
 
