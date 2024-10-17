@@ -86,7 +86,7 @@ function mouseClicked() {
         choice = "✂️";
     }
 
-    let comchoice: any = Math.floor(random(0, 2));
+    let comchoice: any = Math.floor(random(0, 3));
 
     if (comchoice === 0) {
         comchoice = "🌑";
