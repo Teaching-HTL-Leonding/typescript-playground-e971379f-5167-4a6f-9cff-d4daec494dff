@@ -76,7 +76,7 @@ function mouseMoved() {
 function mouseClicked() {
 
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
-
+if(cchoice==="") {
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH) {
         choice = "🌑";
     }
@@ -116,4 +116,5 @@ function mouseClicked() {
     if (cchoice === choice) {
         text("It's a tie!", 30, 450);
     }
+}
 }
