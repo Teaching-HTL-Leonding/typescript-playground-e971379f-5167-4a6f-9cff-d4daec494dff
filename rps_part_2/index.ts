@@ -27,12 +27,14 @@ function setup() {
     text("📃", PAPER_LEFT, HUMAN_SYMBOLS_TOP);
     text("✂️", SCISSORS_LEFT, HUMAN_SYMBOLS_TOP);
 }
-
+//"🪨"|| "📃"|| "✂️"
 
 function mouseMoved() {
+    if (choice !== "") { return; }
+
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
     // This function highlights the icon currently being hovered over by the mouse.
-    if (choice === "🪨"|| "📃"|| "✂️") {
+    if (choice === "") {
 
     }
 
@@ -90,8 +92,11 @@ function mouseClicked() {
     }
     if (comchoice === 1) {
         comchoice === "📃";
-     } else {comchoice === "✂️"};
+    }
+    else if (comchoice === 2) { comchoice === "✂️" };
 
+    fill("red")
+    text(`${choice}`, 100, 300);
     if (comchoice === choice) {
         fill("yellow");
         text("It's a tie", 30, 450);
