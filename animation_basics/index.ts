@@ -50,6 +50,13 @@ function draw() {
     if (imageIndex === 0) { currentImage = necromancer0; }
     else if (imageIndex === 1) { currentImage = necromancer1; }
     else if (imageIndex === 2) { currentImage = necromancer2; }
+    else if (imageIndex === 3) { currentImage = necromancer3; }
+    else if (imageIndex === 4) { currentImage = necromancer4; }
+    else if (imageIndex === 5) { currentImage = necromancer5; }
+    else if (imageIndex === 6) { currentImage = necromancer6; }
+    else if (imageIndex === 7) { currentImage = necromancer7; }
+    else if (imageIndex === 8) { currentImage = necromancer8; }
+    else if (imageIndex === 9) { currentImage = necromancer9; }
     // <<< Add the remaining images here. We have 10 images in total.
 
     // Draw the selected image on the canvas
@@ -57,9 +64,16 @@ function draw() {
 
     // Move to the next image in the animation. If we reach the end, start over.
     imageIndex++;
+
+    if(imageIndex === 10){
+        imageIndex =0;
+    }
     // <<< Add the logic to reset the animation to the first image when we have reached the last image.
 
     // Move the sprite to the right. If the sprite moved too far, set it back to the left.
     x += 5;
+    if(x === 500){
+        x = -500;
+    }
     // <<< Add the logic to reset the sprite position to the left when it has moved too far to the right (> 500 pixels is a good threshold).
 }
