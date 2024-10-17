@@ -73,6 +73,7 @@ function mouseMoved() {
 }
 
 function mouseClicked() {
+
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
 
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH) {
