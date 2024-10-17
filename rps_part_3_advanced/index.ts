@@ -72,9 +72,15 @@ function mouseMoved() {
         }
         rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
 
-        if(isInVertical && mouseX > LIZARD_LEFT && mouseX < LIZARD_LEFT + ICON_HEIGHT){
-            
-        }
+        if (isInVertical && mouseX > LIZARD_LEFT && mouseX < LIZARD_LEFT + ICON_HEIGHT) {
+            stroke("yellow");
+        } else { stroke("black"); }
+        rect(LIZARD_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
+
+        if (isInVertical && mouseX > SPOCK_LEFT && mouseX < SPOCK_LEFT + ICON_HEIGHT) {
+            stroke("yellow");
+        } else { stroke("black"); }
+        rect(SPOCK_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
     }
 }
 
@@ -97,14 +103,26 @@ function mouseClicked() {
             selected = "✂️"; // Player selects "scissors".
         }
 
+        if (isInVertical && mouseX >= LIZARD_LEFT && mouseX < LIZARD_LEFT + ICON_WIDTH) {
+            selected = "🐊";
+        }
+
+        if (isInVertical && mouseX >= SPOCK_LEFT && mouseX < SPOCK_LEFT + ICON_WIDTH) {
+            selected = "🖖";
+        }
+
         // Generate a random number to determine the computer's choice.
-        const computerSymbolId = Math.floor(random(0, 3));
+        const computerSymbolId = Math.floor(random(0, 5));
         if (computerSymbolId === 0) {
             computer = "👊"; // Computer selects "stone".
         } else if (computerSymbolId === 1) {
             computer = "📃"; // Computer selects "paper".
         } else if (computerSymbolId === 2) {
             computer = "✂️"; // Computer selects "scissors".
+        } else if (computerSymbolId === 3) {
+            computer = "🐊";
+        } else if (computerSymbolId === 4) {
+            computer = "🖖";
         }
 
         // Display the computer's choice.
@@ -122,8 +140,14 @@ function mouseClicked() {
         } else if (
             (selected === "👊" && computer === "✂️") || // Stone beats scissors.
             (selected === "📃" && computer === "👊") || // Paper beats stone.
-            (selected === "✂️" && computer === "📃")    // Scissors beat paper.
-        ) {
+            (selected === "✂️" && computer === "📃") || // Scissors beat paper.
+            (selected === "👊" && computer === "🐊") ||
+            (selected === "🐊" && computer === "🖖") ||
+            (selected === "🖖" && computer === "✂️") ||
+            (selected === "✂️" && computer === "🐊") ||
+            (selected === "🐊" && computer === "📃") ||
+            (selected === "📃" && computer === "🖖") ||
+            (selected === "🖖" && computer === "👊")) {
             winner = "You win!"; // Player wins.
         } else {
             winner = "Computer wins!"; // Computer wins.
