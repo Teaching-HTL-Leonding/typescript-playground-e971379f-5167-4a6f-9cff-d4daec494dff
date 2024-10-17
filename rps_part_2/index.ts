@@ -23,11 +23,11 @@ function setup() {
     // Display the icons for "stone", "paper", and "scissors".
     textSize(75);
     const HUMAN_SYMBOLS_TOP = 150;
-    text("🪨", STONE_LEFT, HUMAN_SYMBOLS_TOP);
+    text("🌑", STONE_LEFT, HUMAN_SYMBOLS_TOP);
     text("📃", PAPER_LEFT, HUMAN_SYMBOLS_TOP);
     text("✂️", SCISSORS_LEFT, HUMAN_SYMBOLS_TOP);
 }
-//"🪨"|| "📃"|| "✂️"
+//"🌑"|| "📃"|| "✂️"
 
 function mouseMoved() {
     if (choice !== "") { return; }
@@ -76,7 +76,7 @@ function mouseClicked() {
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
 
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH) {
-        choice = "🪨";
+        choice = "🌑";
     }
     if (isInVertical && mouseX >= PAPER_LEFT && mouseX < PAPER_LEFT + ICON_WIDTH) {
         choice = "📃";
@@ -85,20 +85,33 @@ function mouseClicked() {
         choice = "✂️";
     }
 
-    let comchoice: any = random(0, 2);
+    let comchoice: any = Math.floor(random(0, 2));
 
     if (comchoice === 0) {
-        comchoice = "🪨";
+        comchoice = "🌑";
     }
     if (comchoice === 1) {
-        comchoice === "📃";
+        comchoice = "📃";
     }
-    else if (comchoice === 2) { comchoice === "✂️" };
+    else if (comchoice === 2) { comchoice = "✂️" };
 
-    fill("red")
-    text(`${choice}`, 100, 300);
+    noStroke();
+    fill("yellow");
+    textSize(30);
+    text(`Computer:`, 30, 300);
+
+    textSize(50);
+    text(`${comchoice}`, 175, 300);
+    if(choice === "✂️" && comchoice === "🌑" || choice === "🌑" && comchoice === "📃" ||
+    choice === "📃" && comchoice === "✂️") {
+        text("Computer wins!", 30, 450);
+    }
+    if(comchoice === "✂️" && choice === "🌑" || comchoice === "🌑" && choice === "📃" ||
+    comchoice === "📃" && choice === "✂️") {
+        text("You win!", 30, 450);
+    }
+
     if (comchoice === choice) {
-        fill("yellow");
-        text("It's a tie", 30, 450);
+        text("It's a tie!", 30, 450);
     }
 }
