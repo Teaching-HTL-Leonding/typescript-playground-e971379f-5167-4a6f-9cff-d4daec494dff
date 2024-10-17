@@ -38,8 +38,8 @@ function setup() {
 
 let imageIndex = 0; // This variable will keep track of the current image (=frame) in the animation
 let x = -500; // This variable will keep track of the current position of the animation on the x-axis.
-              // By moving the sprite to the left, we can create the illusion of movement.
-              // We start at -500 because the the image contains a pretty wide whitespace on the left side.
+// By moving the sprite to the left, we can create the illusion of movement.
+// We start at -500 because the the image contains a pretty wide whitespace on the left side.
 
 function draw() {
     background("lightgray");
@@ -65,14 +65,14 @@ function draw() {
     // Move to the next image in the animation. If we reach the end, start over.
     imageIndex++;
 
-    if(imageIndex === 10){
-        imageIndex =0;
+    if (imageIndex === 10) {
+        imageIndex = 0;
     }
     // <<< Add the logic to reset the animation to the first image when we have reached the last image.
 
     // Move the sprite to the right. If the sprite moved too far, set it back to the left.
     x += 5;
-    if(x > 500){
+    if (x > 500) {
         x = -500;
     }
     // <<< Add the logic to reset the sprite position to the left when it has moved too far to the right (> 500 pixels is a good threshold).
