@@ -11,6 +11,7 @@ const ICON_TOP = 75;
 const ICON_HEIGHT = 100;
 
 let choice = "";
+let cchoice ="";
 
 function setup() {
     createCanvas(500, 490);
@@ -89,12 +90,12 @@ function mouseClicked() {
     let comchoice: any = Math.floor(random(0, 3));
 
     if (comchoice === 0) {
-        comchoice = "🌑";
+        cchoice = "🌑";
     }
     if (comchoice === 1) {
-        comchoice = "📃";
+        cchoice = "📃";
     }
-    else if (comchoice === 2) { comchoice = "✂️" };
+    else if (comchoice === 2) { cchoice = "✂️" };
 
     noStroke();
     fill("yellow");
@@ -102,17 +103,17 @@ function mouseClicked() {
     text(`Computer:`, 30, 300);
 
     textSize(50);
-    text(`${comchoice}`, 175, 300);
-    if(choice === "✂️" && comchoice === "🌑" || choice === "🌑" && comchoice === "📃" ||
-    choice === "📃" && comchoice === "✂️") {
+    text(`${cchoice}`, 175, 300);
+    if(choice === "✂️" && cchoice === "🌑" || choice === "🌑" && cchoice === "📃" ||
+    choice === "📃" && cchoice === "✂️") {
         text("Computer wins!", 30, 450);
     }
-    if(comchoice === "✂️" && choice === "🌑" || comchoice === "🌑" && choice === "📃" ||
-    comchoice === "📃" && choice === "✂️") {
+    if(cchoice === "✂️" && choice === "🌑" || cchoice === "🌑" && choice === "📃" ||
+    cchoice === "📃" && choice === "✂️") {
         text("You win!", 30, 450);
     }
 
-    if (comchoice === choice) {
+    if (cchoice === choice) {
         text("It's a tie!", 30, 450);
     }
 }
