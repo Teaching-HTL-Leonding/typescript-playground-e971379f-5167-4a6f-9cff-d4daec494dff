@@ -71,6 +71,10 @@ function mouseMoved() {
             stroke("black");
         }
         rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
+
+        if(isInVertical && mouseX > LIZARD_LEFT && mouseX < LIZARD_LEFT + ICON_HEIGHT){
+            
+        }
     }
 }
 
