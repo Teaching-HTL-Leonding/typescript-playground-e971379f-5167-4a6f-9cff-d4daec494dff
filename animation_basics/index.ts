@@ -1,5 +1,5 @@
 const BASE_URL = "https://cddataexchange.blob.core.windows.net/images/NecromancerHalloween/Walking";
-const IMAGE_SCALE = 0.1;
+const IMAGE_SCALE = 0.2;
 
 // Our animation will be a series of 10 images
 let necromancer0: p5.Image;
