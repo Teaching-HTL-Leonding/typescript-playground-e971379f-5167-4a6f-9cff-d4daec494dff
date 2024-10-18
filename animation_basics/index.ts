@@ -38,6 +38,8 @@ function setup() {
 
 let imageIndex = 0; // This variable will keep track of the current image (=frame) in the animation
 let x = -500; // This variable will keep track of the current position of the animation on the x-axis.
+let y = 0;
+let currentY = 0;
 // By moving the sprite to the left, we can create the illusion of movement.
 // We start at -500 because the the image contains a pretty wide whitespace on the left side.
 
@@ -60,8 +62,9 @@ function draw() {
     // <<< Add the remaining images here. We have 10 images in total.
 
     // Draw the selected image on the canvas
-    image(currentImage, x, 0, necromancer0.width * IMAGE_SCALE, necromancer0.height * IMAGE_SCALE);
+    image(currentImage, x, currentY, necromancer0.width * IMAGE_SCALE, necromancer0.height * IMAGE_SCALE);
 
+    currentY += y;
     // Move to the next image in the animation. If we reach the end, start over.
     imageIndex++;
 
@@ -76,4 +79,11 @@ function draw() {
         x = -500;
     }
     // <<< Add the logic to reset the sprite position to the left when it has moved too far to the right (> 500 pixels is a good threshold).
+}
+
+function mouseClicked() {
+    y = -5;
+    if (currentY < -40) {
+        y = 5;
+    }
 }
