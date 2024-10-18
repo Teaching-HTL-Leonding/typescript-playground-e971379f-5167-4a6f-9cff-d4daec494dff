@@ -1,5 +1,5 @@
 const BASE_URL = "https://cddataexchange.blob.core.windows.net/images/NecromancerHalloween/Walking";
-const IMAGE_SCALE = 0.2;
+const IMAGE_SCALE = 0.1;
 
 // Our animation will be a series of 10 images
 let necromancer0: p5.Image;
@@ -19,13 +19,13 @@ function preload() {
     necromancer0 = loadImage(`${BASE_URL}/Necromancer_01__WALK_000.png`);
     necromancer1 = loadImage(`${BASE_URL}/Necromancer_01__WALK_001.png`);
     necromancer2 = loadImage(`${BASE_URL}/Necromancer_01__WALK_002.png`);
-    necromancer3 = loadImage(`${BASE_URL}/Necromancer_01_WALK_003.png`);
-    necromancer4 = loadImage(`${BASE_URL}/Necromancer_01_WALK_004.png`);
-    necromancer5 = loadImage(`${BASE_URL}/Necromancer_01_WALK_005.png`);
-    necromancer6 = loadImage(`${BASE_URL}/Necromancer_01_WALK_006.png`);
-    necromancer7 = loadImage(`${BASE_URL}/Necromancer_01_WALK_007.png`);
-    necromancer8 = loadImage(`${BASE_URL}/Necromancer_01_WALK_008.png`);
-    necromancer9 = loadImage(`${BASE_URL}/Necromancer_01_WALK_009.png`);
+    necromancer3 = loadImage(`${BASE_URL}/Necromancer_01__WALK_003.png`);
+    necromancer4 = loadImage(`${BASE_URL}/Necromancer_01__WALK_004.png`);
+    necromancer5 = loadImage(`${BASE_URL}/Necromancer_01__WALK_005.png`);
+    necromancer6 = loadImage(`${BASE_URL}/Necromancer_01__WALK_006.png`);
+    necromancer7 = loadImage(`${BASE_URL}/Necromancer_01__WALK_007.png`);
+    necromancer8 = loadImage(`${BASE_URL}/Necromancer_01__WALK_008.png`);
+    necromancer9 = loadImage(`${BASE_URL}/Necromancer_01__WALK_009.png`);
     // <<< Add the remaining images here. We have 10 images in total.
 }
 
