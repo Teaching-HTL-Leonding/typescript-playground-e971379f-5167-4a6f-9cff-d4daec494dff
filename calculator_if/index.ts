@@ -43,8 +43,8 @@ function setup() {
 
 
 function mouseClicked() {
-            fill("white");
-        rect(10, 10, width - 20, height / 6);
+    fill("white");
+    rect(10, 10, width - 20, height / 6);
     const y789 = mouseY > lineHeight && mouseY < 2 * lineHeight;
     const y456 = mouseY > 2 * lineHeight && mouseY < 3 * lineHeight;
     const y123 = mouseY > 3 * lineHeight && mouseY < 4 * lineHeight;
