@@ -34,7 +34,7 @@ switch(cards){
   case 12: cards = Q; break;
   case 13: cards = K; break;
 }
-  cardImage = loadImage(`${BASE_URL}/${colorname}/${cards}`)
+  cardImage = loadImage(`${BASE_URL}`/`${colorname}`/`${cards}`)
 
 }
 
