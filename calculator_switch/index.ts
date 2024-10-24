@@ -49,7 +49,7 @@ function draw() {
     line(0, y, width, y);
     text('0', cellWidth, y + lineHeight / 2);
     text('C', cellWidth * 2.5, y + lineHeight / 2);
-    
+
     let x = cellWidth * 1;
     line(x, lineHeight, x, height - lineHeight);
 
@@ -58,36 +58,57 @@ function draw() {
 }
 
 function mouseClicked() {
-  if (mouseY > lineHeight && mouseY <= height && mouseX >= 0 && mouseX <= width) {
-    const clickedY = Math.floor((mouseY - lineHeight) / lineHeight);
-    const clickedX = Math.floor(mouseX / cellWidth);
-    
-    let digit: number = -1;
+    if (mouseY > lineHeight && mouseY <= height && mouseX >= 0 && mouseX <= width) {
+        const clickedY = Math.floor((mouseY - lineHeight) / lineHeight);
+        const clickedX = Math.floor(mouseX / cellWidth);
 
-    // <<< Turn all of the following if statements into switch statements
-    if (clickedY === 0) {
-        if (clickedX === 0) { digit = 7; }
-        else if (clickedX === 1) { digit = 8; }
-        else if (clickedX === 2) { digit = 9; }
-    } else if (clickedY === 1) {
-        if (clickedX === 0) { digit = 4; }
-        else if (clickedX === 1) { digit = 5; }
-        else if (clickedX === 2) { digit = 6; }
-    } else if (clickedY === 2) {
-        if (clickedX === 0) { digit = 1; }
-        else if (clickedX === 1) { digit = 2; }
-        else if (clickedX === 2) { digit = 3; }
-    } else if (clickedX !== 2) { digit = 0; }
-    // <<< =========================================== Until here
+        let digit: number = -1;
 
-    if (digit === -1) {
-        num = 0;
-    } else {
-        const oldNum = num;
-        num = num * 10 + digit;
-        if (num >= 1000000000) {
-            num = oldNum;
+        // <<< Turn all of the following if statements into switch statements
+        //if (clickedY === 0) {
+        //    if (clickedX === 0) { digit = 7; }
+        //    else if (clickedX === 1) { digit = 8; }
+        //    else if (clickedX === 2) { digit = 9; }
+        //} else if (clickedY === 1) {
+        //    if (clickedX === 0) { digit = 4; }
+        //    else if (clickedX === 1) { digit = 5; }
+        //    else if (clickedX === 2) { digit = 6; }
+        //} else if (clickedY === 2) {
+        //    if (clickedX === 0) { digit = 1; }
+        //    else if (clickedX === 1) { digit = 2; }
+        //    else if (clickedX === 2) { digit = 3; }
+        //} else if (clickedX !== 2) { digit = 0; }
+        // <<< =========================================== Until here
+
+        switch (clickedY) {
+            case 0: switch (clickedX) {
+                case 0: digit = 7; break;
+                case 1: digit = 8; break;
+                case 2: digit = 9; break;
+            }
+            case 1: switch (clickedX) {
+                case 0: digit = 4; break;
+                case 1: digit = 5; break;
+                case 2: digit = 6; break;
+            }
+            case 2: switch (clickedX) {
+                case 0: digit = 1; break;
+                case 1: digit = 2; break;
+                case 2: digit = 3; break;
+            }
+            case 3: switch (clickedX) {
+                case 0: digit = 0; break;
+                case 1: digit = 0; break;
+            }
+        }
+        if (digit === -1) {
+            num = 0;
+        } else {
+            const oldNum = num;
+            num = num * 10 + digit;
+            if (num >= 1000000000) {
+                num = oldNum;
+            }
         }
     }
-  }
 }
