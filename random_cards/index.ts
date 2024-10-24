@@ -17,10 +17,10 @@ function preload() {
   }
 
   // Generate random card (1 = Ace, 2 = 2, ..., 10 = 10, 11 = Jack, 12 = Queen, 13 = King)
-  cards = Math.floor(random(1, 14));
-  cards : any;
-switch(cards){
-  case 1: cards = A; break;
+  let cardIx = Math.floor(random(1, 14));
+  let cards : any;
+switch(cardIx){
+  case 1: cards = "A"; break;
   case 2: cards = 2; break;
   case 3: cards = 3; break;
   case 4: cards = 4; break;
@@ -30,11 +30,11 @@ switch(cards){
   case 8: cards = 8; break;
   case 9: cards = 9; break;
   case 10: cards = 10; break;
-  case 11: cards = J; break;
-  case 12: cards = Q; break;
-  case 13: cards = K; break;
+  case 11: cards = "J"; break;
+  case 12: cards = "Q"; break;
+  case 13: cards = "K"; break;
 }
-  cardImage = loadImage(`${BASE_URL}`/`${colorname}`/`${cards}`)
+  cardImage = loadImage(`${BASE_URL}/${colorname}/${cards}.png.`)
 
 }
 
