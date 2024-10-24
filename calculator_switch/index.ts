@@ -61,9 +61,6 @@ function mouseClicked() {
     if (mouseY > lineHeight && mouseY <= height && mouseX >= 0 && mouseX <= width) {
         const clickedY = Math.floor((mouseY - lineHeight) / lineHeight);
         const clickedX = Math.floor(mouseX / cellWidth);
-
-        let digit: number = -1;
-
         // <<< Turn all of the following if statements into switch statements
         //if (clickedY === 0) {
         //    if (clickedX === 0) { digit = 7; }
@@ -79,27 +76,27 @@ function mouseClicked() {
         //    else if (clickedX === 2) { digit = 3; }
         //} else if (clickedX !== 2) { digit = 0; }
         // <<< =========================================== Until here
-
+        let digit: number = -1;
         switch (clickedY) {
             case 0: switch (clickedX) {
                 case 0: digit = 7; break;
                 case 1: digit = 8; break;
                 case 2: digit = 9; break;
-            }
+            } break;
             case 1: switch (clickedX) {
                 case 0: digit = 4; break;
                 case 1: digit = 5; break;
                 case 2: digit = 6; break;
-            }
+            } break;
             case 2: switch (clickedX) {
                 case 0: digit = 1; break;
                 case 1: digit = 2; break;
                 case 2: digit = 3; break;
-            }
+            } break;
             case 3: switch (clickedX) {
                 case 0: digit = 0; break;
                 case 1: digit = 0; break;
-            }
+            } break;
         }
         if (digit === -1) {
             num = 0;
