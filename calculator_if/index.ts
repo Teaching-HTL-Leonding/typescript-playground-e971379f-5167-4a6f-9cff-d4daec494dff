@@ -79,4 +79,13 @@ function mouseClicked() {
     else if(y0 && mouseX > 0 && mouseX <= 2*cellWidth) {
         num = 0;
     }
+   // else (y0 && mouseX > 2*cellWidth && mouseX <= width) {
+   // num = 13;
+   // };
+    else {
+    num = 13;
+    };
+
+    fill("black");
+    text(`${num}`, width/2, height/10);
 }
