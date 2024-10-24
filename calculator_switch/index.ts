@@ -80,17 +80,19 @@ function mouseClicked() {
         //} else if (clickedX !== 2) { digit = 0; }
         //// <<< =========================================== Until here
 
-        switch (clickedY && clickedX) {
-            case 0 && 0: digit = 7; break;
-            case 0 && 1: digit = 8; break;
+        switch (clickedY) {
             case 0 && 2: digit = 9; break;
-            case 1 && 0: digit = 4; break;
-            case 1 && 1: digit = 5; break;
+            case 0 && 1: digit = 8; break;
+            case 0 && 0: digit = 7; break;
+
             case 1 && 2: digit = 6; break;
-            case 2 && 0: digit = 1; break;
-            case 2 && 1: digit = 2; break;
+            case 1 && 1: digit = 5; break;
+            case 1 && 0: digit = 4; break;
+
             case 2 && 2: digit = 3; break;
-           default: digit = 0; break;
+            case 2 && 1: digit = 2; break;
+            case 2 && 0: digit = 1; break;
+
         }
 
         if (digit === -1) {
