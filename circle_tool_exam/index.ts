@@ -25,5 +25,9 @@ text(2*(mouseX -x), 5, 10 )
     stroke("white");
     line(x - xdurchmesser / 2, y, x + xdurchmesser / 2, y);
     line(x, y - ydurchmesser / 2, x, y + ydurchmesser / 2);
+
+    textAlign(RIGHT, CENTER);
+    text(xdurchmesser, x-xdurchmesser/2, y);
+    text(ydurchmesser, x, y-ydurchmesser/2);
 }
 // <<< Add the function `mouseMoved` with the required code here
