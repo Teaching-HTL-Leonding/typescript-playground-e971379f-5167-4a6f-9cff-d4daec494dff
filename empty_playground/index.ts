@@ -51,6 +51,7 @@ function mouseClicked() {
     const y0 = mouseY > 4 * lineHeight && mouseY < height;
     let digit = 0;
 
+    if(num < 1000000000){
     if (y789 && mouseX > 0 && mouseX < cellWidth) {
         num = num * 10 + 7;
     }
@@ -81,10 +82,10 @@ function mouseClicked() {
     else if (y0 && mouseX > 0 && mouseX < 2 * cellWidth) {
         num = num * 10 + 0;
     }
-    else if (y0 && mouseX > 2 * cellWidth && mouseX < width) {
+    }
+    if (y0 && mouseX > 2 * cellWidth && mouseX < width) {
         num = 0;
     };
-
 
     fill("black");
     textAlign(RIGHT);
