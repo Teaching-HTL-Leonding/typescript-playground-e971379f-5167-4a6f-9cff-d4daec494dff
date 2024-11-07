@@ -54,22 +54,19 @@ function setup() {
     textAlign(CENTER);
     text(operator, width / 2, 75);
 
+    switch(answerpos){
+        case 0: num1 = answer; break;
+        case 1: num2 = answer; break;
+        case 2: num3 = answer; break;
+    }
+
     textAlign(CENTER, CENTER);
     text(num1, width / 6, height / 2);
     text(num2, width / 2, height / 2);
     text(num3, width / 6 * 5, height / 2);
 
-    switch (answerpos) {
-        case 0: fill("black"); rect(0, height / 3, width / 3, height / 3);
-            fill("yellow");
-            text(answer, width / 6, height / 2); break;
-        case 1: fill("black"); rect(width / 3, height / 3, width / 3, height / 3);
-            fill("yellow"); text(answer, width / 2, height / 2); break;
-        case 2: fill("black"); rect(width / 3 * 2, height / 3, width / 3, height / 3);
-            fill("yellow"); text(answer, width / 6 * 5, height / 2); break;
-    }
     
-    if(answer ===)
+
     // <<< TODO: Add your code here
 }
 
@@ -79,19 +76,36 @@ function mouseClicked() {
     let ypos = mouseY > height / 2 - 50 / 2 && mouseY < height / 2 + 50 / 2;
 
     if (ypos && mouseX > 0 && mouseX < width / 3) {
-        choice = 1;
+        choice = num1;
     }
     else if (ypos && mouseX > width / 3 && mouseX < width / 3 * 2) {
-        choice = 2;
+        choice = num2;
     }
     else if (ypos && mouseX > width / 3 * 2 && mouseX < width) {
-        choice = 3;
+        choice = num3;
     }
 
+    textAlign(BOTTOM);
+    textSize(30);
+    if(choice === answer){fill("lime");
+        text(answer + " ist richtig!", width/2, height-75);
+    }
+    else if(choice !== answer){fill("red");
+        text(choice + " ist falsch!", width/2, height-75);
+    }
     // <<< TODO: Add your code here
 }
 
 
+   // switch (answerpos) {
+   //     case 0: fill("black"); rect(0, height / 3, width / 3, height / 3);
+   //         fill("yellow");
+   //         text(answer, width / 6, height / 2); break;
+   //     case 1: fill("black"); rect(width / 3, height / 3, width / 3, height / 3);
+   //         fill("yellow"); text(answer, width / 2, height / 2); break;
+   //     case 2: fill("black"); rect(width / 3 * 2, height / 3, width / 3, height / 3);
+   //         fill("yellow"); text(answer, width / 6 * 5, height / 2); break;
+   // }
 
 // mouseMoved function displays mouse coordinates as feedback
 function mouseMoved() {
