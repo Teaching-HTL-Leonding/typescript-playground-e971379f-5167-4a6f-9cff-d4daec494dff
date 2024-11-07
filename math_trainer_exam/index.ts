@@ -88,8 +88,8 @@ function mouseClicked() {
         choice = num3;
     }
 
+textSize(50);
     textAlign(CENTER, BOTTOM);
-    textSize(30);
     if (choice === answer) {
         fill("lime");
         text(answer + " ist richtig!", width / 2, height - 75);
