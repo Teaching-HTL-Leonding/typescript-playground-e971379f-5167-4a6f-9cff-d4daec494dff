@@ -2,30 +2,25 @@
 // of a Math.floor(randomly generated arithmetic operation.
 
 const textsize1 = 50;
-let operator = "";
-let operatorix = 0;
-
-let operand1 = 0;
-let operand2 = 0;
 
 let num1 = 0;
 let num2 = 0;
 let num3 = 0;
 
 let answer: number;
-let answerpos = 0;
 
 let choice: number;
 
 // setup function runs once and sets up the quiz elements on the canvas
 function setup() {
-    operatorix = Math.floor(random(0, 3));
-    operand1 = Math.floor(random(0, 101));
-    operand2 = Math.floor(random(0, 101));
+    let operator = "";
+    const operatorix = Math.floor(random(0, 3));
+    let operand1 = Math.floor(random(0, 101));
+    let operand2 = Math.floor(random(0, 101));
     num1 = Math.floor(random(0, 300));
     num2 = Math.floor(random(0, 300));
     num3 = Math.floor(random(0, 300));
-    answerpos = Math.floor(random(0, 3));
+    const answerpos = Math.floor(random(0, 3));
 
     createCanvas(400, 400);
     background("black");
@@ -81,7 +76,7 @@ function mouseClicked() {
     else if (ypos && mouseX > width / 3 && mouseX < width / 3 * 2) {
         choice = num2;
     }
-    else if (ypos && mouseX > (width / 3 )* 2 && mouseX < width) {
+    else if (ypos && mouseX > (width / 3) * 2 && mouseX < width) {
         choice = num3;
     }
 
