@@ -15,8 +15,6 @@ let answerpos = 0;
 
 let choice: number;
 
-// <<< TODO: Declare your GLOBAL variables here
-
 // setup function runs once and sets up the quiz elements on the canvas
 function setup() {
     operator = Math.floor(random(0, 3));
@@ -67,10 +65,6 @@ function setup() {
     text(num1, width / 6, height / 2);
     text(num2, width / 2, height / 2);
     text(num3, width / 6 * 5, height / 2);
-
-
-
-    // <<< TODO: Add your code here
 }
 
 // mouseClicked function checks if the user clicked on the correct answer
@@ -100,7 +94,6 @@ function mouseClicked() {
         fill("red");
         text(choice + " ist falsch!", width / 2, height - 75);
     }
-    // <<< TODO: Add your code here
 }
 
 
