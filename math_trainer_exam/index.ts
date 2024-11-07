@@ -2,7 +2,8 @@
 // of a Math.floor(randomly generated arithmetic operation.
 
 const textsize1 = 50;
-let operator: any = 0;
+let operator = "";
+let operatorix = 0;
 
 let operand1 = 0;
 let operand2 = 0;
@@ -18,7 +19,7 @@ let choice: number;
 
 // setup function runs once and sets up the quiz elements on the canvas
 function setup() {
-    operator = Math.floor(random(0, 3));
+    operatorix = Math.floor(random(0, 3));
     operand1 = Math.floor(random(0, 101));
     operand2 = Math.floor(random(0, 101));
     num1 = Math.floor(random(0, 300));
@@ -29,7 +30,7 @@ function setup() {
     createCanvas(400, 400);
     background("black");
 
-    switch (operator) {
+    switch (operatorix) {
         case 0: operator = "+";
             answer = operand1 + operand2;
             break;
