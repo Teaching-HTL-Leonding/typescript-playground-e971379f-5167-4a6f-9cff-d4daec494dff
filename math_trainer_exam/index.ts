@@ -78,6 +78,7 @@ function mouseClicked() {
 
     let ypos = mouseY > height / 2 - 50 / 2 && mouseY < height / 2 + 50 / 2;
 
+    //choose which number the player chose
     if (ypos && mouseX > 0 && mouseX < width / 3) {
         choice = num1;
     }
@@ -88,7 +89,8 @@ function mouseClicked() {
         choice = num3;
     }
 
-textSize(50);
+    //show results
+    textSize(50);
     textAlign(CENTER, BOTTOM);
     if (choice === answer) {
         fill("lime");
