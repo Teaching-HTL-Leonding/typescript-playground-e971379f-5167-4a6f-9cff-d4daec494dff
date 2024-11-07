@@ -1,6 +1,7 @@
 // This program generates a simple math quiz in a graphical window, where the user selects the correct result
 // of a Math.floor(randomly generated arithmetic operation.
 
+const textsize1 = 50;
 let operator: any = 0;
 
 let operand1 = 0;
@@ -33,7 +34,7 @@ function setup() {
             answer = operand1 + operand2;
             break;
         case 1: operator = "-";
-            operand2 = Math.floor(random(0, operand1));
+            operand2 = Math.round(random(0, operand1));
             answer = operand1 - operand2;
             break;
         case 2: operator = "*";
@@ -45,7 +46,7 @@ function setup() {
 
     fill("yellow");
     noStroke();
-    textSize(50);
+    textSize(textsize1);
     textAlign(RIGHT);
     text(operand1 + "  ", width / 2, 75);
 
@@ -70,7 +71,7 @@ function setup() {
 // mouseClicked function checks if the user clicked on the correct answer
 function mouseClicked() {
 
-    let ypos = mouseY > height / 2 - 50 / 2 && mouseY < height / 2 + 50 / 2;
+    let ypos = mouseY > height / 2 - textsize1 / 2 && mouseY < height / 2 + textsize1 / 2;
 
     //choose which number the player chose
     if (ypos && mouseX > 0 && mouseX < width / 3) {
@@ -85,7 +86,7 @@ function mouseClicked() {
 
 
     //show results
-    textSize(50);
+    textSize(textsize1);
     textAlign(CENTER, BOTTOM);
     if (choice === answer) {
         fill("lime");
