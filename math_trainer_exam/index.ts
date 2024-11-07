@@ -83,6 +83,7 @@ function mouseClicked() {
         choice = num3;
     }
 
+
     //show results
     textSize(50);
     textAlign(CENTER, BOTTOM);
@@ -90,7 +91,7 @@ function mouseClicked() {
         fill("lime");
         text(answer + " ist richtig!", width / 2, height - 75);
     }
-    else if (choice !== answer) {
+    else if (choice !== answer && ypos) {
         fill("red");
         text(choice + " ist falsch!", width / 2, height - 75);
     }
