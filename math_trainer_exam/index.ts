@@ -47,10 +47,10 @@ function setup() {
     noStroke();
     textSize(50);
     textAlign(RIGHT);
-    text(operand1 + " ", width / 2, 75);
+    text(operand1 + "  ", width / 2, 75);
 
     textAlign(LEFT);
-    text(" " + operand2, width / 2, 75);
+    text("  " + operand2, width / 2, 75);
 
     textAlign(CENTER);
     text(operator, width / 2, 75);
