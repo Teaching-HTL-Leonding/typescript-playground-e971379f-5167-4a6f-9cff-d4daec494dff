@@ -1,23 +1,73 @@
 // This program generates a simple math quiz in a graphical window, where the user selects the correct result
-// of a randomly generated arithmetic operation.
+// of a Math.floor(randomly generated arithmetic operation.
 
-let num1 = random(0, 101);
-let num2 = random(0, 101);
-let num3 = random(0, 101);
+let operator: any = 0;
+
+let operand1 = 0;
+let operand2 = 0;
+
+let num1 = 0;
+let num2 = 0;
+let num3 = 0;
+
+let answer: number;
 
 // <<< TODO: Declare your GLOBAL variables here
 
 // setup function runs once and sets up the quiz elements on the canvas
 function setup() {
+    operator = Math.floor(random(0, 3));
+    operand1 = Math.floor(random(0, 101));
+    operand2 = Math.floor(random(0, 101));
+    num1 = Math.floor(random(0, 300));
+    num2 = Math.floor(random(0, 300));
+    num3 = Math.floor(random(0, 300));
+
     createCanvas(400, 400);
     background("black");
 
-    
+    switch (operator) {
+        case 0: operator = "+"; break;
+        case 1: operator = "-"; break;
+        case 2: operator = "*"; break;
+    }
+
+    fill("yellow");
+    noStroke();
+    textSize(50);
+    textAlign(RIGHT);
+    text(operand1 + " ", width / 2, 75);
+
+    textAlign(LEFT);
+    text(" " + operand2, width / 2, 75);
+
+    textAlign(CENTER);
+    text(operator, width / 2, 75);
+
+    textAlign(CENTER, CENTER);
+    text(num1, width / 6, height / 2);
+    text(num2, width / 2, height / 2);
+    text(num3, width / 6 * 5, height / 2);
+
+    answer = operand1 operator operand2;
     // <<< TODO: Add your code here
 }
 
 // mouseClicked function checks if the user clicked on the correct answer
 function mouseClicked() {
+
+    let ypos = mouseY > height / 2 - 50 / 2 && mouseY < height / 2 + 50 / 2;
+
+    if (ypos && mouseX > 0 && mouseX < width / 3) {
+
+    }
+    else if (ypos && mouseX > width / 3 && mouseX < width / 3 * 2) {
+
+    }
+    else if (ypos && mouseX > width / 3 * 2 && mouseX < width) {
+
+    }
+
     // <<< TODO: Add your code here
 }
 
