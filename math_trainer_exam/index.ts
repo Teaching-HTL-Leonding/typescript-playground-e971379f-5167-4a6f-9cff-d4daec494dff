@@ -8,7 +8,6 @@ let num2 = 0;
 let num3 = 0;
 
 let answer: number;
-
 let choice: number;
 
 // setup function runs once and sets up the quiz elements on the canvas
