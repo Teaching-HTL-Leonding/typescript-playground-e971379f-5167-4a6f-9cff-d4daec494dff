@@ -85,7 +85,7 @@ function mouseClicked() {
     else if (ypos && mouseX > width / 3 && mouseX < width / 3 * 2) {
         choice = num2;
     }
-    else if (ypos && mouseX > width / 3 * 2 && mouseX < width) {
+    else if (ypos && mouseX > (width / 3 )* 2 && mouseX < width) {
         choice = num3;
     }
 
