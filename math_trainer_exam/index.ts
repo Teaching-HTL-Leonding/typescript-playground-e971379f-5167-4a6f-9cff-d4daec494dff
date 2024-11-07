@@ -13,6 +13,8 @@ let num3 = 0;
 let answer: number;
 let answerpos = 0;
 
+let choice: number;
+
 // <<< TODO: Declare your GLOBAL variables here
 
 // setup function runs once and sets up the quiz elements on the canvas
@@ -66,6 +68,8 @@ function setup() {
         case 2: fill("black"); rect(width / 3 * 2, height / 3, width / 3, height / 3);
             fill("yellow"); text(answer, width / 6 * 5, height / 2); break;
     }
+    
+    if(answer ===)
     // <<< TODO: Add your code here
 }
 
@@ -75,17 +79,19 @@ function mouseClicked() {
     let ypos = mouseY > height / 2 - 50 / 2 && mouseY < height / 2 + 50 / 2;
 
     if (ypos && mouseX > 0 && mouseX < width / 3) {
-
+        choice = 1;
     }
     else if (ypos && mouseX > width / 3 && mouseX < width / 3 * 2) {
-
+        choice = 2;
     }
     else if (ypos && mouseX > width / 3 * 2 && mouseX < width) {
-
+        choice = 3;
     }
 
     // <<< TODO: Add your code here
 }
+
+
 
 // mouseMoved function displays mouse coordinates as feedback
 function mouseMoved() {
