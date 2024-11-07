@@ -11,6 +11,7 @@ let num2 = 0;
 let num3 = 0;
 
 let answer: number;
+let answerpos = 0;
 
 // <<< TODO: Declare your GLOBAL variables here
 
@@ -22,14 +23,21 @@ function setup() {
     num1 = Math.floor(random(0, 300));
     num2 = Math.floor(random(0, 300));
     num3 = Math.floor(random(0, 300));
+    answerpos = Math.floor(random(0, 3));
 
     createCanvas(400, 400);
     background("black");
 
     switch (operator) {
-        case 0: operator = "+"; break;
-        case 1: operator = "-"; break;
-        case 2: operator = "*"; break;
+        case 0: operator = "+";
+            answer = operand1 + operand2;
+            break;
+        case 1: operator = "-";
+            answer = operand1 - operand2;
+            break;
+        case 2: operator = "*";
+            answer = operand1 * operand2;
+            break;
     }
 
     fill("yellow");
@@ -49,7 +57,15 @@ function setup() {
     text(num2, width / 2, height / 2);
     text(num3, width / 6 * 5, height / 2);
 
-    answer = operand1 operator operand2;
+    switch (answerpos) {
+        case 0: fill("black"); rect(0, height / 3, width / 3, height / 3);
+            fill("yellow");
+            text(answer, width / 6, height / 2); break;
+        case 1: fill("black"); rect(width / 3, height / 3, width / 3, height / 3);
+            fill("yellow"); text(answer, width / 2, height / 2); break;
+        case 2: fill("black"); rect(width / 3 * 2, height / 3, width / 3, height / 3);
+            fill("yellow"); text(answer, width / 6 * 5, height / 2); break;
+    }
     // <<< TODO: Add your code here
 }
 
