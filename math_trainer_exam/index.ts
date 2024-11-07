@@ -39,8 +39,8 @@ function setup() {
             answer = operand1 - operand2;
             break;
         case 2: operator = "*";
-            operand1 = random(1, 11);
-            operand2 = random(1, 11);
+            operand1 = Math.floor(random(1, 11));
+            operand2 = Math.floor(random(1, 11));
             answer = operand1 * operand2;
             break;
     }
