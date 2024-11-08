@@ -2,16 +2,16 @@ function setup() {
     createCanvas(250, 250);
     background("black");
 
-    strokeWeight(5);
-    strokeCap(SQUARE);
+    strokeWeight(1);
+    stroke("yellow");
+    colorMode(HSB);
 
-    let v = 25;
-    while (v <= 225) {
-        stroke("yellow");
-        line(25, v, 225, v);
-        stroke("blue");
-        line(v, 25, v, 225);
-        v += 50;
+    let y = 225;
+    while (y >= 25) {
+        stroke(y, 100, 100);
+        line(25, y, y, 225);
+        line(y, 25, 225, y);
+        y -= 12.5;
     }
 }
 
