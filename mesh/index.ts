@@ -9,8 +9,7 @@ function setup() {
 
   strokeWeight(1);
 
-
-    let a = 0;
+  let a = 0;
 
   let i = MARGIN;
   while (i < SIZE) {
@@ -21,7 +20,7 @@ function setup() {
       h += MARGIN;
     }
     i += MARGIN;
-      a += 60;
+    a += 60;
   }
   // <<< Add your code here
 }
