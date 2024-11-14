@@ -12,7 +12,7 @@ function setup() {
     let i = GRID;
     while (i < SIZE) {
         stroke("yellow");
-        line(0, i, i, i);
+        line(GRID, i, i, i);
         i += GRID;
     }
 
@@ -20,7 +20,7 @@ function setup() {
     i = GRID;
     while (i < SIZE) {
         stroke("red");
-        line(i, i, SIZE, i);
+        line(i, i, SIZE-GRID, i);
         i += GRID;
     }
 
