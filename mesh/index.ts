@@ -20,8 +20,8 @@ function setup() {
       line(MARGIN, i, SIZE - MARGIN, h);
       h += MARGIN;
     }
-    a += 60;
     i += MARGIN;
+    a += 60;
   }
   // <<< Add your code here
 }
