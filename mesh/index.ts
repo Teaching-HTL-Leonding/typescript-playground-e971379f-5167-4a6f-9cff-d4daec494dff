@@ -13,14 +13,14 @@ function setup() {
 
   let i = MARGIN;
   while (i < SIZE) {
-    let a = i -MARGIN;
-  stroke(a, 100, 100);
+    let a = i - MARGIN;
+    stroke(a, 100, 100);
     let h = MARGIN;
     while (h < SIZE) {
       line(MARGIN, i, SIZE - MARGIN, h);
       h += MARGIN;
     }
-      a += 60;
+    a += 60;
     i += MARGIN;
   }
   // <<< Add your code here
