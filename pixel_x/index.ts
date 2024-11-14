@@ -11,9 +11,9 @@ function setup() {
     while (i < SIZE - GRID) {
         fill("yellow");
         rect(i, i, GRID, GRID);
-        i += GRID;
         fill("lime");
         rect(SIZE - GRID - i, i, GRID, GRID);
+        i += GRID;
     }
 
 }
