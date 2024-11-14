@@ -20,7 +20,7 @@ function setup() {
     i = GRID;
     while (i < SIZE) {
         stroke("red");
-        line(i, i, SIZE-GRID, i);
+        line(i, i, SIZE - GRID, i);
         i += GRID;
     }
 
