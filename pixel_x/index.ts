@@ -1,6 +1,6 @@
 function setup() {
     const SIZE = 425; // Canvas size
-    const GRID = 25;  // Size of the squares
+    const GRID = 25;  // Size of tie squares
 
     createCanvas(SIZE, SIZE);
     background("black");
@@ -12,13 +12,8 @@ function setup() {
         fill("yellow");
         rect(i, i, GRID, GRID);
         i += GRID;
+        fill("lime");
+        rect(SIZE - GRID - i, i, GRID, GRID);
     }
 
-    let h = GRID;
-    while (h < SIZE - GRID) {
-        fill("lime");
-        rect(SIZE - GRID - h, h, GRID, GRID);
-        h += GRID;
-    }
-    // <<< Add your code here
 }
