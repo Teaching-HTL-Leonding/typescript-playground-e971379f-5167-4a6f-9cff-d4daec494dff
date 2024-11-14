@@ -11,7 +11,7 @@ function setup() {
     stroke("lightgray");
 
     // Draw a grid by using a while loop.
-    
+
     // Part 1: Draw vertical lines
     // Here you see how to use a while loop.
     let i = GRID;            // STEP 1: Initialize the loop variable
@@ -22,7 +22,7 @@ function setup() {
 
     }
 
-    
+
     // Part 2: Draw horizontal lines
     // <<< Write your code here
 }
