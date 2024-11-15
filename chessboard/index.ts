@@ -41,6 +41,6 @@ function setup() {
             case 7: files = "h"; break;
         }
 
-        text(files, SIZE - SQUARE_SIZE/2 - ranks * SQUARE_SIZE, SQUARE_SIZE);
+        text(files, SQUARE_SIZE/2 + ranks * SQUARE_SIZE, SIZE-SQUARE_SIZE/2);
     }
 }
