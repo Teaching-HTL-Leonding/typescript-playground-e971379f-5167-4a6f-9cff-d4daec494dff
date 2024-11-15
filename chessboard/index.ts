@@ -16,7 +16,7 @@ function setup() {
         if ((color + y) % 2 === 0) {
             fill("lightyellow");
         } else { fill("brown"); }
-
+        
         rect(SQUARE_SIZE + x * SQUARE_SIZE, SQUARE_SIZE + y * SQUARE_SIZE,
             SQUARE_SIZE, SQUARE_SIZE);
 
