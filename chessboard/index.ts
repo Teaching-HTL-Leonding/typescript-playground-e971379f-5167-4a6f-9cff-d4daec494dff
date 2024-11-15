@@ -26,12 +26,21 @@ function setup() {
 
     textAlign(CENTER, CENTER);
     textSize(20);
-    let h = 0;
-    let ranks = 1;
-    while (h < 8) {
+    for(let h = 0, ranks = 1, files: string; h<8; h++, ranks++){
         fill("white");
-        text(ranks, SQUARE_SIZE / 2, SIZE - ranks * SQUARE_SIZE);
-        ranks += 1;
-        h++;
+        text(ranks, SQUARE_SIZE / 2, SIZE - SQUARE_SIZE/2 - ranks * SQUARE_SIZE);
+
+        switch(h){
+            case 0: files = "a"; break;
+            case 1: files = "b"; break;
+            case 2: files = "c"; break;
+            case 3: files = "d"; break;
+            case 4: files = "e"; break;
+            case 5: files = "f"; break;
+            case 6: files = "g"; break;
+            case 7: files = "h"; break;
+        }
+
+        text(files, SIZE - SQUARE_SIZE/2 - ranks * SQUARE_SIZE, SQUARE_SIZE);
     }
 }
