@@ -11,17 +11,15 @@ function mouseMoved() {
   background("black");
   strokeWeight(2);
 
-  let i = MARGIN;
-  while (i < SIZE) {
+  for (let i = MARGIN; i < SIZE; i += MARGIN) {
     stroke("yellow");
     line(MARGIN, i, mouseX, mouseY);
-    line(SIZE - MARGIN, i, mouseX, mouseY);
+    line(mouseX, mouseY, SIZE - MARGIN, i);
     stroke("lime");
-    line(i, SIZE - MARGIN, mouseX, mouseY);
     line(i, MARGIN, mouseX, mouseY);
-
-    i += MARGIN;
+    line(i, SIZE - MARGIN, mouseX, mouseY);
   }
+
 
   // <<< Add your code here
 }
