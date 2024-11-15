@@ -11,16 +11,13 @@ function setup() {
 
   let a = 0;
 
-  let i = MARGIN;
-  while (i < SIZE) {
+  for(let i = MARGIN; i<SIZE; i+= MARGIN){
     stroke(a, 100, 100);
-    let h = MARGIN;
-    while (h < SIZE) {
-      line(MARGIN, i, SIZE - MARGIN, h);
-      h += MARGIN;
+    for(let h = MARGIN; h < SIZE; h+= MARGIN){
+      line(MARGIN, i, SIZE-MARGIN, h);
     }
-    i += MARGIN;
-    a += 60;
+    a+= 60;
   }
+
   // <<< Add your code here
 }
