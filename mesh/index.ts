@@ -9,14 +9,11 @@ function setup() {
 
   strokeWeight(1);
 
-  let a = 0;
-
-  for(let i = MARGIN; i<SIZE; i+= MARGIN){
+  for(let i = MARGIN, a = 0; i<SIZE; i+= MARGIN, a += 60){
     stroke(a, 100, 100);
     for(let h = MARGIN; h < SIZE; h+= MARGIN){
       line(MARGIN, i, SIZE-MARGIN, h);
     }
-    a+= 60;
   }
 
   // <<< Add your code here
