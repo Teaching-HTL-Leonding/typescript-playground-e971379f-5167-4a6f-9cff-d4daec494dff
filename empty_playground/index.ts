@@ -23,6 +23,7 @@ function setup() {
         }
         text(digits, 100, 10 * (i + 1));
         summe += Number(digits);
+        
     }
 
     text(summe, 150, 50);
