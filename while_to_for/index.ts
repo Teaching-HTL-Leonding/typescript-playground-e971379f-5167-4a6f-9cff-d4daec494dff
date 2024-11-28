@@ -10,11 +10,14 @@ function setup() {
     strokeWeight(0.25);
     stroke("lightgray");
 
-    for(let i = GRID; i< SIZE; i += GRID) {
-        line(i, 0, i, SIZE); 
-
-    }
-
+    // Draw a grid by using a while loop.
+    
+    // Part 1: Draw vertical lines
+    // Here you see how to use a while loop.
+    for(let i = GRID; i < SIZE; i += GRID){
+        line(i, 0, i, SIZE);
+     }
+ 
     // Part 2: Draw horizontal lines
     // Note that this time, we are using a for loop.
     //   +--------------------------- STEP 1: Initialize the loop variable
