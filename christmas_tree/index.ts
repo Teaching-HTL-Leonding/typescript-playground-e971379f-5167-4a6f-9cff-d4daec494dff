@@ -27,5 +27,4 @@ function setup() {
   fill("brown");
   rect(-TRUNK_WIDTH/2, triangleheight*2, TRUNK_WIDTH, TRUNK_HEIGHT);
 
-  // <<< Draw the tree
 }
