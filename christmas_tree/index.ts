@@ -11,7 +11,6 @@ const TRUNK_HEIGHT = 50;
 function setup() {
   let trianglebase = INITIAL_TRIANGLE_BASE_WIDTH;
   let triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
-  const layerincrease = 1.5;
   createCanvas(500, 500);
   background("black");
   fill("green");
@@ -21,7 +20,12 @@ function setup() {
   for(let i = 1; i <= NUMBER_OF_LAYERS; i ++){
     triangle(0, 0, -INITIAL_TRIANGLE_BASE_WIDTH/2*i, triangleheight*i, 
     INITIAL_TRIANGLE_BASE_WIDTH/2*i, triangleheight*i)
-   translate(0, triangleheight)
+   translate(0, triangleheight/2*i)
   }
+
+
+  fill("brown");
+  rect(-TRUNK_WIDTH/2, triangleheight*2, TRUNK_WIDTH, TRUNK_HEIGHT);
+
   // <<< Draw the tree
 }
