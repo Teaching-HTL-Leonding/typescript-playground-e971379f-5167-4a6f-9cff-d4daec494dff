@@ -15,7 +15,7 @@ function setup() {
 
         for (let x = 0; x <= SIZE; x += CIRCLE_DIAMETER) {
             circle(0, 0, CIRCLE_DIAMETER);
-            translate(CIRCLE_DIAMETER, 0); // Move origin to the rightzz
+            translate(CIRCLE_DIAMETER, 0); // Move origin to the right
         }
         // Restore the stored origin -> back to left-most position in the current row
         pop();
