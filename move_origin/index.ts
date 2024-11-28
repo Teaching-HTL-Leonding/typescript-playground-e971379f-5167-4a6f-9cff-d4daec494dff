@@ -9,6 +9,7 @@ function setup() {
   stroke("yellow");
   noFill();
 
+    circle(0, 0, CIRCLE_DIAMETER);
   for (let i = 0; i <= SIZE; i += CIRCLE_DIAMETER) {
     translate(CIRCLE_DIAMETER, CIRCLE_DIAMETER);
     circle(0, 0, CIRCLE_DIAMETER);
