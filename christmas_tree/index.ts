@@ -16,16 +16,18 @@ function setup() {
   fill("green");
   noStroke();
 
-    translate(width/2, TOP_MARGIN);
-  for(let i = 1; i <= NUMBER_OF_LAYERS; i ++){
-   triangle(0, 0, -trianglebase/2, triangleheight*i, trianglebase/2, triangleheight*i)
-   translate(0, triangleheight/2 *i)
-  
-    text(i, 50*i, 50*i)
-  trianglebase = trianglebase* 1.5;
-  triangleheight = triangleheight/2 *;
+  translate(width / 2, TOP_MARGIN + triangleheight);
+  for (let i = 1; i <= NUMBER_OF_LAYERS; i++) {
+    triangle(-trianglebase / 2, 0, 0, -triangleheight, trianglebase / 2, 0);
+    translate(0, triangleheight)
+
+    fill("white");
+    text(i, 200, 0);
+    fill("green");
+    trianglebase = trianglebase * 1.5;
+    triangleheight = trianglebase / 2;
   }
   fill("brown");
-  rect(-TRUNK_WIDTH/2, triangleheight*2, TRUNK_WIDTH, TRUNK_HEIGHT);
+  rect(-TRUNK_WIDTH/2, 0, TRUNK_WIDTH, TRUNK_HEIGHT);
 
 }
