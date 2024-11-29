@@ -19,8 +19,11 @@ function setup() {
   translate(width / 2, TOP_MARGIN + triangleheight);
   for (let i = 1; i <= NUMBER_OF_LAYERS; i++) {
     triangle(-trianglebase / 2, 0, 0, -triangleheight, trianglebase / 2, 0);
-    translate(0, triangleheight)
 
+    fill(Math.floor(random(0, 255)), Math.floor(random(0, 255)), Math.floor(random(0, 255)));
+    circle(-trianglebase / 2, 0 + SPHERE_DIAMETER / 2, SPHERE_DIAMETER);
+    circle(trianglebase / 2, 0 + SPHERE_DIAMETER / 2, SPHERE_DIAMETER);
+    if(i<NUMBER_OF_LAYERS){translate(0, triangleheight);}
     fill("white");
     text(i, 200, 0);
     fill("green");
@@ -28,6 +31,6 @@ function setup() {
     triangleheight = trianglebase / 2;
   }
   fill("brown");
-  rect(-TRUNK_WIDTH/2, 0, TRUNK_WIDTH, TRUNK_HEIGHT);
+  rect(-TRUNK_WIDTH / 2, 0, TRUNK_WIDTH, TRUNK_HEIGHT);
 
 }
