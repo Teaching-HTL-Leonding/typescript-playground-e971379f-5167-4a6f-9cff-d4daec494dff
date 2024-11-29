@@ -18,12 +18,11 @@ function setup() {
 
     translate(width/2, TOP_MARGIN);
   for(let i = 1; i <= NUMBER_OF_LAYERS; i ++){
-    triangle(0, 0, -INITIAL_TRIANGLE_BASE_WIDTH/2*i, triangleheight*i, 
-    INITIAL_TRIANGLE_BASE_WIDTH/2*i, triangleheight*i)
-   translate(0, triangleheight/2*i)
+   triangle(0, 0, -trianglebase/2, triangleheight*i, trianglebase/2, triangleheight*i)
+   translate(0, triangleheight/2 *i)
+  
+  trianglebase = trianglebase* 1.5;
   }
-
-
   fill("brown");
   rect(-TRUNK_WIDTH/2, triangleheight*2, TRUNK_WIDTH, TRUNK_HEIGHT);
 
