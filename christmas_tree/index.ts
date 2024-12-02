@@ -7,30 +7,28 @@ const NUMBER_OF_LAYERS = 4;
 const TRUNK_WIDTH = 50;
 const TRUNK_HEIGHT = 50;
 
-
 function setup() {
-  let trianglebase = INITIAL_TRIANGLE_BASE_WIDTH;
-  let triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
   createCanvas(500, 500);
   background("black");
-  fill("green");
   noStroke();
 
-  translate(width / 2, TOP_MARGIN + triangleheight);
-  for (let i = 1; i <= NUMBER_OF_LAYERS; i++) {
-    triangle(-trianglebase / 2, 0, 0, -triangleheight, trianglebase / 2, 0);
+  let trianglebase = INITIAL_TRIANGLE_BASE_WIDTH;
+  let triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
+  translate(width/2, TOP_MARGIN+triangleheight)
 
-    fill(Math.floor(random(0, 255)), Math.floor(random(0, 255)), Math.floor(random(0, 255)));
-    circle(-trianglebase / 2, 0 + SPHERE_DIAMETER / 2, SPHERE_DIAMETER);
-    circle(trianglebase / 2, 0 + SPHERE_DIAMETER / 2, SPHERE_DIAMETER);
-    if(i<NUMBER_OF_LAYERS){translate(0, triangleheight);}
-    fill("white");
-    text(i, 200, 0);
-    fill("green");
-    trianglebase = trianglebase * 1.5;
-    triangleheight = trianglebase / 2;
-  }
+{  for(let i = 0; i <= 3; i++){
+  fill("green");
+    triangle(-trianglebase/2, 0, trianglebase/2, 0, 0, -triangleheight);
+    fill(Math.floor(random(0, 256)), Math.floor(random(0, 256)), Math.floor(random(0, 256)))
+    circle(trianglebase/2, SPHERE_DIAMETER/2, SPHERE_DIAMETER);
+    circle(-trianglebase/2, SPHERE_DIAMETER/2, SPHERE_DIAMETER);
+
+    if(i < 3){translate(0, triangleheight);}
+    trianglebase = trianglebase*1.5;
+    triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
+  }}
+  
   fill("brown");
-  rect(-TRUNK_WIDTH / 2, 0, TRUNK_WIDTH, TRUNK_HEIGHT);
-
+  rect(-TRUNK_WIDTH/2, 0, TRUNK_WIDTH, TRUNK_HEIGHT);
+  // <<< Draw the tree
 }
