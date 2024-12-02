@@ -16,14 +16,14 @@ function setup() {
   let triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
   translate(width/2, TOP_MARGIN+triangleheight)
 
-{  for(let i = 0; i <= 3; i++){
+{  for(let i = 0; i < NUMBER_OF_LAYERS; i++){
   fill("green");
     triangle(-trianglebase/2, 0, trianglebase/2, 0, 0, -triangleheight);
     fill(Math.floor(random(0, 256)), Math.floor(random(0, 256)), Math.floor(random(0, 256)))
     circle(trianglebase/2, SPHERE_DIAMETER/2, SPHERE_DIAMETER);
     circle(-trianglebase/2, SPHERE_DIAMETER/2, SPHERE_DIAMETER);
 
-    if(i < 3){translate(0, triangleheight);}
+    if(i <NUMBER_OF_LAYERS - 1){translate(0, triangleheight);}
     trianglebase = trianglebase*1.5;
     triangleheight = trianglebase * HEIGHT_TO_WIDTH_RATIO;
   }}
