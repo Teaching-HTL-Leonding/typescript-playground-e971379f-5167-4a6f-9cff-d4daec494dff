@@ -17,7 +17,7 @@ function mouseMoved() {
     strokeWeight(2);
 
     noFill();
-    let xscaling = ((mouseX / 10000) * 10);
+    let xscaling = (mouseX / 1000);
 
     let a = 0;
 
