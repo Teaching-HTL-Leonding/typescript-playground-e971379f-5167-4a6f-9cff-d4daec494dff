@@ -31,7 +31,7 @@ function mouseMoved() {
         }
         pop();
         translate(10 + 10 * xscaling, 0);
-        a += (width/360 * 3.6)+(width/360 * 3.6)*xscaling;
+        a += (width / 360 * 3.6) + (width / 360 * 3.6) * xscaling;
     }
 
     resetMatrix();
