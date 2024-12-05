@@ -24,14 +24,14 @@ function mouseMoved() {
     for (let i = 0; i < width; i++) {
         push();
         for (let g = 0; g < height; g += 10) {
-        stroke(a, 100, 100);
+            stroke(a, 100, 100);
             line(0, 0, 10 + 10 * xscaling, 5 + 5 * xscaling);
             line(0, 10 + 10 * xscaling, 10 + 10 * xscaling, 5 + 5 * xscaling);
             translate(0, 10 + 10 * xscaling);
         }
         pop();
         translate(10 + 10 * xscaling, 0);
-        a += width / 100 * 360;
+        a += (width/360 * 3.6)+(width/360 * 3.6)*xscaling;
     }
 
     resetMatrix();
