@@ -37,12 +37,10 @@ function guess(textInput: string) {
   if (textInput === wordToGuess) {
     background("green");
     textSize(75);
-    fill("white")
     text("Correct!", WIDTH / 2, HEIGHT / 2);
   } else {
     background("red");
     textSize(50);
-    fill("white");
     text(`Wrong!\nIt was "${wordToGuess}"`, WIDTH / 2, HEIGHT / 2);
   }
 }
