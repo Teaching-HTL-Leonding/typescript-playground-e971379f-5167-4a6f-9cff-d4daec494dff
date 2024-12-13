@@ -25,9 +25,10 @@ const WORDS: string[] = [
 "flower"
 ]
 
+let wordToGuess: string;
 
 function setup() {
-let wordToGuess = random(WORDS);
+ wordToGuess = random(WORDS);
   createCanvas(WIDTH, HEIGHT);
   background("black");
   textAlign(CENTER, CENTER);
