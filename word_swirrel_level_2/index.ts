@@ -17,7 +17,7 @@ function setup() {
     resetMatrix();
     let letterIndex = Math.floor(random(wordtoscramble.length));
     translate(random(100,WIDTH-100), random(30, HEIGHT-100));
-    rotate(random(0, 360));
+    rotate(random(0, 45));
     textSize(random(30, 100));
     fill(random(0, 360),random(0,100), 100);
     text(wordtoscramble[letterIndex], 0, 0);
