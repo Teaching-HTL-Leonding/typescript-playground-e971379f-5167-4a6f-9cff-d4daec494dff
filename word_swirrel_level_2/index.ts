@@ -13,11 +13,15 @@ function setup() {
 
   let wordtoscramble = wordToGuess;
   let scrambledWord = "";
-  for(let i = 0; i <wordtoscramble.length; i++) {
+  while(wordtoscramble.length > 0) {
     let letterIndex = Math.floor(random(wordtoscramble.length));
     textSize(random(30, 100));
     fill(random(0, 360),random(0,100), 100);
     text(wordtoscramble[letterIndex], random (50, WIDTH), random(50, HEIGHT));
+    
+    scrambledWord += wordtoscramble[letterIndex];
+    wordtoscramble = wordtoscramble.substring(0, letterIndex)
+    + wordtoscramble.substring(letterIndex + 1);
 
   }
 
