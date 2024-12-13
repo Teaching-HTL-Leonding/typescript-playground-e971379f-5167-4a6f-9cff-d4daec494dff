@@ -14,10 +14,13 @@ function setup() {
   let wordtoscramble = wordToGuess;
   let scrambledWord = "";
   while(wordtoscramble.length > 0) {
+    resetMatrix();
     let letterIndex = Math.floor(random(wordtoscramble.length));
+    translate(random(100,WIDTH-100), random(30, HEIGHT-100));
+    rotate(random(0, 360));
     textSize(random(30, 100));
     fill(random(0, 360),random(0,100), 100);
-    text(wordtoscramble[letterIndex], random (50, WIDTH), random(50, HEIGHT));
+    text(wordtoscramble[letterIndex], 0, 0);
     
     scrambledWord += wordtoscramble[letterIndex];
     wordtoscramble = wordtoscramble.substring(0, letterIndex)
