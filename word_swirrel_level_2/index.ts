@@ -28,7 +28,7 @@ function setup() {
 
   }
 
-  // <<< Add your code here
+  resetMatrix();
 }
 
 function guess(textInput: string) {
