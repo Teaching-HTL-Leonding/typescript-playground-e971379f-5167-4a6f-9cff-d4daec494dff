@@ -41,11 +41,11 @@ function setup() {
   rect(0, 14.84, 16.5, 40.32);
   rect(0, 25.84, 5.5, 18.32);
   rect(-3, 31.34, 3, 7.32);
-  arc(16.5, 35, 9.15,18.32, 270, 90);
-  circle(50,35, 18.3);
+  arc(16.5, 35, 9.15, 18.32, 270, 90);
+  circle(50, 35, 18.3);
   line(50, 0, 50, 70);
-  rect(100-16.5, 14.84, 16.5, 40.32);
-  rect(100-5.5, 25.84, 5.5, 18.32);
+  rect(100 - 16.5, 14.84, 16.5, 40.32);
+  rect(100 - 5.5, 25.84, 5.5, 18.32);
   rect(100, 31.34, 3, 7.32);
 
   // <<< Add your code to draw the rest if the soccer field here
@@ -57,6 +57,19 @@ function setup() {
   fill("#008000d0");
   noStroke();
   rect(10, 5, 80, 60);
+
+  textSize(4);
+  for (let i = 0; i < playerNumbers.length; i++) {
+  fill("orange");
+  textAlign(RIGHT);
+    translate(0, 5);
+    text(playerNumbers[i], 30, 8);
+    fill("yellow");
+    textAlign(LEFT);
+    text(firstNames[i] + " " + lastNames[i], 35, 8);
+ 
+
+  }
 
   // <<< Add your code to draw the player numbers and names here
 
