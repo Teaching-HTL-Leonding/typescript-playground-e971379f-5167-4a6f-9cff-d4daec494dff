@@ -63,10 +63,10 @@ function setup() {
   fill("orange");
   textAlign(RIGHT);
     translate(0, 5);
-    text(playerNumbers[i], 30, 8);
+    text(playerNumbers[i], 30, 7);
     fill("yellow");
     textAlign(LEFT);
-    text(firstNames[i] + " " + lastNames[i], 35, 8);
+    text(firstNames[i] + " " + lastNames[i], 35, 7);
  
 
   }
