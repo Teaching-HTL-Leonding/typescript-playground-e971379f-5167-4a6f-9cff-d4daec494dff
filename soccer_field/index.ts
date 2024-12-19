@@ -40,22 +40,22 @@ function setup() {
 
   fill("green");
   rect(0, 0, 100, 70);
-  circle(11,35,18.3);
+  circle(11, 35, 18.3);
   rect(0, 14.84, 16.5, 40.32);
   rect(0, 25.84, 5.5, 18.32);
   rect(-3, 31.34, 3, 7.32);
   circle(50, 35, 18.3);
   line(50, 0, 50, 70);
-  circle(100-11,35,18.3);
+  circle(100 - 11, 35, 18.3);
   rect(100 - 16.5, 14.84, 16.5, 40.32);
   rect(100 - 5.5, 25.84, 5.5, 18.32);
   rect(100, 31.34, 3, 7.32);
   arc(0, 0, 1, 1, 0, 90);
-  arc(0, 70, 1,1, 270, 0);
-  arc(100, 0, 1,1, 90, 180);
+  arc(0, 70, 1, 1, 270, 0);
+  arc(100, 0, 1, 1, 90, 180);
   arc(100, 70, 1, 1, 180, 270);
   circle(11, 35, 0.5);
-  circle(100-11, 35, 0.5);
+  circle(100 - 11, 35, 0.5);
   circle(50, 35, 0.5);
 
   // <<< Add your code to draw the rest if the soccer field here
@@ -70,14 +70,14 @@ function setup() {
 
   textSize(4);
   for (let i = 0; i < playerNumbers.length; i++) {
-  fill("orange");
-  textAlign(RIGHT);
+    fill("orange");
+    textAlign(RIGHT);
     translate(0, 5);
     text(playerNumbers[i], 30, 7);
     fill("yellow");
     textAlign(LEFT);
     text(firstNames[i] + " " + lastNames[i], 35, 7);
- 
+
 
   }
 
