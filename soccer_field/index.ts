@@ -71,7 +71,5 @@ function setup() {
 
   }
 
-  // <<< Add your code to draw the player numbers and names here
-
   pop();
 }
