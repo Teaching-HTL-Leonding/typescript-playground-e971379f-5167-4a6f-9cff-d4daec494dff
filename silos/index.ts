@@ -25,18 +25,41 @@ const BUTTON_TOP = SILOS_TOP - BUTTON_GAP - BUTTON_SIZE; // Y-coordinate of the 
 function setup() {
   createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  for(let i = 0; i<INITIAL_FILL.length; i++){
-    if(INITIAL_FILL[i] === ","){
-      
+  let num = 0;
+
+  for (let i = 0; i < INITIAL_FILL.length; i++) {
+    if (INITIAL_FILL[i] === ",") {
+      silos.push(num);
+      num = 0;
+    } else {
+      num = num * 10 + parseInt(INITIAL_FILL[i]);
     }
   }
-  // <<< Add your code here
+  silos.push(num);
+
+
 }
 
 function draw() {
   background("black");
 
-  // <<< Add your code here
+  for (let i = 0; i < silos.length; i++) {
+    if (silos[i] >= 8) {
+      fill("red");
+    } else { fill("lime") }
+
+    noStroke();
+    rect(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP + SILO_HEIGHT - SILO_HEIGHT / 10 * silos[i],
+      SILO_WIDTH, SILO_HEIGHT / 10 * silos[i]);
+
+    noFill();
+    stroke("yellow");
+    rect(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP, SILO_WIDTH, SILO_HEIGHT);
+    stroke("black");
+    line(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP,
+      SILO_WIDTH + SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP);
+  }
+
 }
 
 function mouseClicked() {
