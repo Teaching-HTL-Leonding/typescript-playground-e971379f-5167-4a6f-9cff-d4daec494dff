@@ -17,7 +17,7 @@ const SILO_HEIGHT = 320; // Height of each silo
 const SILOS_TOP = CANVAS_HEIGHT / 2 - SILO_HEIGHT / 2; // Y-coordinate of the top of the silos
 
 const BUTTON_SIZE = 20; // Size of the buttons ("add" and "remove")
-const BUTTON_GAP = 15; // Gap between the bottom of the buttons and the top of the silos
+const BUTTON_GAP = 10; // Gap between the bottom of the buttons and the top of the silos
 const BUTTON_TOP = SILOS_TOP - BUTTON_GAP - BUTTON_SIZE; // Y-coordinate of the top of the buttons
 
 // <<< Add your arrays here
@@ -37,13 +37,13 @@ function setup() {
   }
   silos.push(num);
 
-
 }
 
 function draw() {
   background("black");
 
   for (let i = 0; i < silos.length; i++) {
+    strokeWeight(3);
     if (silos[i] >= 8) {
       fill("red");
     } else { fill("lime") }
@@ -51,6 +51,28 @@ function draw() {
     noStroke();
     rect(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP + SILO_HEIGHT - SILO_HEIGHT / 10 * silos[i],
       SILO_WIDTH, SILO_HEIGHT / 10 * silos[i]);
+    fill("yellow");
+    rect(SILO_GAP + i * (SILO_WIDTH + SILO_GAP), BUTTON_TOP, BUTTON_SIZE, BUTTON_SIZE);
+    rect(SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP),
+      BUTTON_TOP, BUTTON_SIZE, BUTTON_SIZE);
+
+
+    const trianglex = SILO_GAP + (SILO_GAP + SILO_WIDTH) * i;
+    if (mouseY >= BUTTON_TOP && mouseY <= BUTTON_TOP + BUTTON_SIZE &&
+      mouseX >= SILO_GAP + i * (SILO_WIDTH + SILO_GAP) &&
+      mouseX <= BUTTON_SIZE + SILO_GAP + i * (SILO_WIDTH + SILO_GAP)) {
+      fill("red");
+    } else { fill("black"); }
+    triangle(BUTTON_SIZE / 2 + trianglex, BUTTON_TOP + 4, 4 + trianglex,
+      BUTTON_TOP + BUTTON_SIZE - 4, BUTTON_SIZE - 4 + trianglex, BUTTON_TOP + BUTTON_SIZE - 4);
+
+    if (mouseY >= BUTTON_TOP && mouseY <= BUTTON_TOP + BUTTON_SIZE &&
+      mouseX >= SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP) &&
+      mouseX <= BUTTON_SIZE + SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP)) {
+      fill("red");
+    } else { fill("black"); }
+    triangle(BUTTON_SIZE / 2 + trianglex + SILO_WIDTH / 2 + 4, BUTTON_TOP + BUTTON_SIZE - 4,
+      SILO_WIDTH / 2 + 8 + trianglex, BUTTON_TOP + 4, SILO_WIDTH / 2 + BUTTON_SIZE + trianglex, BUTTON_TOP + 4);
 
     noFill();
     stroke("yellow");
@@ -58,10 +80,29 @@ function draw() {
     stroke("black");
     line(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP,
       SILO_WIDTH + SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP);
+    stroke("yellow");
+    textAlign(CENTER);
+    textSize(20);
+    strokeWeight(1);
+    text(silos[i], SILO_GAP + (SILO_WIDTH + SILO_GAP) * i + SILO_WIDTH / 2, CANVAS_HEIGHT - BUTTON_TOP);
+    stroke("black");
   }
+
 
 }
 
 function mouseClicked() {
-  // <<< Add your code here
+  for (let i = 0; i < silos.length; i++) {
+    if (mouseY >= BUTTON_TOP && mouseY <= BUTTON_TOP + BUTTON_SIZE &&
+      mouseX >= SILO_GAP + i * (SILO_WIDTH + SILO_GAP) &&
+      mouseX <= BUTTON_SIZE + SILO_GAP + i * (SILO_WIDTH + SILO_GAP)) {
+      silos[i]++;
+    }
+    if (mouseY >= BUTTON_TOP && mouseY <= BUTTON_TOP + BUTTON_SIZE &&
+      mouseX >= SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP) &&
+      mouseX <= BUTTON_SIZE + SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP)) {
+      silos[i]--;
+    }
+  }
+
 }
