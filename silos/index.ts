@@ -56,6 +56,10 @@ function draw() {
     rect(SILO_GAP + BUTTON_SIZE + BUTTON_GAP + i * (SILO_WIDTH + SILO_GAP),
       BUTTON_TOP, BUTTON_SIZE, BUTTON_SIZE);
 
+    textAlign(CENTER);
+    textSize(20);
+    strokeWeight(1);
+    text(silos[i], SILO_GAP + (SILO_WIDTH + SILO_GAP) * i + SILO_WIDTH / 2, CANVAS_HEIGHT - BUTTON_TOP);
 
     const trianglex = SILO_GAP + (SILO_GAP + SILO_WIDTH) * i;
     if (mouseY >= BUTTON_TOP && mouseY <= BUTTON_TOP + BUTTON_SIZE &&
@@ -80,12 +84,6 @@ function draw() {
     stroke("black");
     line(SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP,
       SILO_WIDTH + SILO_GAP + (SILO_WIDTH + SILO_GAP) * i, SILOS_TOP);
-    stroke("yellow");
-    textAlign(CENTER);
-    textSize(20);
-    strokeWeight(1);
-    text(silos[i], SILO_GAP + (SILO_WIDTH + SILO_GAP) * i + SILO_WIDTH / 2, CANVAS_HEIGHT - BUTTON_TOP);
-    stroke("black");
   }
 
 
