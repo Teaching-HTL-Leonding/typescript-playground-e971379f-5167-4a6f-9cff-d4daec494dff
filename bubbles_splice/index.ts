@@ -57,3 +57,4 @@ function draw() {
     circle(circlesCenterX[i], circlesCenterY[i], circlesDiameter[i]);
   }
 }
+}
