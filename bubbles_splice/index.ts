@@ -2,6 +2,7 @@ const circlesCenterX: number[] = [];
 const circlesCenterY: number[] = [];
 const circlesDiameter: number[] = [];
 const circlesFill: string[] = [];
+const bubbletime: number[] = [];
 let nextCircle = 0;
 const maxDiameter = 150;
 
@@ -30,7 +31,25 @@ function draw() {
     circlesCenterY.push(random(d / 2, height - d / 2));
     circlesFill.push(random(availableColors));
     nextCircle = millis() + random(500, 2000);
+    bubbletime.push(millis()+random(1000, 5000));
   }
+
+  for(let i = bubbletime.length-1; i >= 0; i--){
+
+    if(millis() >= bubbletime[i]){
+    circlesCenterX.splice(i, 1);
+    circlesCenterY.splice(i, 1);
+    circlesDiameter.splice(i, 1);
+    circlesFill.splice(i, 1);
+    bubbletime.splice(i, 1);
+  }
+  /*push();
+  fill("black");
+  rect(100, height - 90, 200, 20);
+  pop();
+  text(bubbletime[i], 100, height-80);
+  text(millis(), 100, height-100);
+  } */
 
   noStroke();
   for (let i = 0; i < circlesDiameter.length; i++) {
