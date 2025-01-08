@@ -1,5 +1,5 @@
 // Set the initial fill levels for the silos. The fill levels are separated by commas.
-const INITIAL_FILL = "3,7,8,3,10,2"
+const INITIAL_FILL = "3,7,8,3,10,2, 4"
 
 const SILO_MAX = 10; // Maximum fill for each silo
 const CRICITAL_FILL = 8; // Critical fill level for each silo
