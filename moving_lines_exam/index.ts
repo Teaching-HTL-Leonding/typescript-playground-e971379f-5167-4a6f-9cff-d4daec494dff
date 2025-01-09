@@ -24,25 +24,32 @@ let minColor = 0;               // Lower bound of random hue value
 let maxColor = 360;             // Upper bound of random hue value
 
 function setup() {
+    for (let i = 0, num = ""; i < CONFIGURATION.length; i++) {
+        if (CONFIGURATION[i] === ";") {
+            numberoflines = parseInt(num);
+        } else if (CONFIGURATION[i] === "-") {
+            minColor = parseInt(num);
+        } else { num += CONFIGURATION[i] }
+    }
     createCanvas(500, 500);
     colorMode(HSB);
 
     // Set random start and end position
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
+    lineStartX.push(random(50, 450));
+    lineStartY.push(random(50, 450));
+    lineEndX.push(random(50, 450));
+    lineEndY.push(random(50, 450));
+    lineStartDx.push(random(0, 5));
+    lineStartDy.push(random(0, 5));
+    lineEndDx.push(random(0, 5));
+    lineEndDy.push(random(0, 5));
 
     for (let i = 0; i < numberoflines; i++) {
 
-        lineStartX.push(lineStartX[0]+ random(-40, 40));
-        lineStartY.push(lineStartY[0]+ random(-40, 40));
-        lineEndX.push(lineEndX[0]+ random(-40, 40));
-        lineEndY.push(lineEndY[0]+ random(-40, 40));
+        lineStartX.push(lineStartX[0] + random(-40, 40));
+        lineStartY.push(lineStartY[0] + random(-40, 40));
+        lineEndX.push(lineEndX[0] + random(-40, 40));
+        lineEndY.push(lineEndY[0] + random(-40, 40));
 
         // Set random movement
         lineStartDx.push(lineStartDx[0]);
@@ -103,30 +110,29 @@ function draw() {
 
 function mouseClicked() {
     if (mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
+        lineStartX.push(lineStartX[0] + random(-40, 40));
+        lineStartY.push(lineStartY[0] + random(-40, 40));
+        lineEndX.push(lineEndX[0] + random(-40, 40));
+        lineEndY.push(lineEndY[0] + random(-40, 40));
 
-        // Set random movement
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
+        lineStartDx.push(lineStartDx[0]);
+        lineStartDy.push(lineStartDy[0]);
+        lineEndDx.push(lineEndDx[0]);
+        lineEndDy.push(lineEndDy[0]);
 
         lineColor.push(random(minColor, maxColor));
 
     } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
-        lineStartX.splice(1, 1);
-        lineStartY.splice(1, 1);
-        lineEndX.splice(1, 1);
-        lineEndY.splice(1, 1);
+        lineStartX.splice(lineStartX.length - 1, 1);
+        lineStartY.splice(lineStartY.length - 1, 1);
+        lineEndX.splice(lineEndX.length - 1, 1);
+        lineEndY.splice(lineEndY.length - 1, 1);
 
-        lineStartDx.splice(1, 1);
-        lineStartDy.splice(1, 1);
-        lineEndDx.splice(1, 1);
-        lineEndDy.splice(1, 1);
+        lineStartDx.splice(lineStartDx.length - 1, 1);
+        lineStartDy.splice(lineStartDy.length - 1, 1);
+        lineEndDx.splice(lineEndDx.length - 1, 1);
+        lineEndDy.splice(lineEndDy.length - 1, 1);
 
-        lineColor.splice(1, 1);
+        lineColor.splice(lineColor.length - 1, 1);
     }
 }
