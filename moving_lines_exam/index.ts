@@ -6,7 +6,7 @@
 // "max hue" is the maximum hue (HSB color space), can be between 0 and 360
 const CONFIGURATION = "5;0-360";
 
-let numberoflines = 5;
+let numberoflines = parseInt(CONFIGURATION[0]);
 let numberoflinesmax = 30;
 
 let lineStartX: number[] = [];     // Start coordinates of line
@@ -26,29 +26,29 @@ let maxColor = 360;             // Upper bound of random hue value
 function setup() {
     createCanvas(500, 500);
     colorMode(HSB);
-    let plusorminus = Math.floor(random(0,2));
-    let operator = "";
-    if(plusorminus=== 0){
-        operator = "+";
-    }else{operator ="-";}
 
     // Set random start and end position
         lineStartX.push(random(50, 450));
         lineStartY.push(random(50, 450));
         lineEndX.push(random(50, 450));
         lineEndY.push(random(50, 450));
-
-    for (let i = 0; i < numberoflines; i++) {
-        lineStartX.push(lineStartX[0]  random(0, 40));
-        lineStartY.push(random(0, 40));
-        lineEndX.push(random(0, 40));
-        lineEndY.push(random(0, 40));
-
-        // Set random movement
         lineStartDx.push(random(0, 5));
         lineStartDy.push(random(0, 5));
         lineEndDx.push(random(0, 5));
         lineEndDy.push(random(0, 5));
+
+    for (let i = 0; i < numberoflines; i++) {
+
+        lineStartX.push(lineStartX[0]+ random(-40, 40));
+        lineStartY.push(lineStartY[0]+ random(-40, 40));
+        lineEndX.push(lineEndX[0]+ random(-40, 40));
+        lineEndY.push(lineEndY[0]+ random(-40, 40));
+
+        // Set random movement
+        lineStartDx.push(lineStartDx[0]);
+        lineStartDy.push(lineStartDy[0]);
+        lineEndDx.push(lineEndDx[0]);
+        lineEndDy.push(lineEndDy[0]);
 
         // Set random color
         lineColor.push(random(minColor, maxColor));
@@ -116,18 +116,17 @@ function mouseClicked() {
 
         lineColor.push(random(minColor, maxColor));
 
-    } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines > 1 && numberoflines <= numberoflinesmax) {
-        numberoflines -= 1;
-        lineStartX.splice(random(1, numberoflines), 1);
-        lineStartY.splice(random(1, numberoflines), 1);
-        lineEndX.splice(random(1, numberoflines), 1);
-        lineEndY.splice(random(1, numberoflines), 1);
+    } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
+        lineStartX.splice(1, 1);
+        lineStartY.splice(1, 1);
+        lineEndX.splice(1, 1);
+        lineEndY.splice(1, 1);
 
-        lineStartDx.splice(random(1, numberoflines), 1);
-        lineStartDy.splice(random(1, numberoflines), 1);
-        lineEndDx.splice(random(1, numberoflines), 1);
-        lineEndDy.splice(random(1, numberoflines), 1);
+        lineStartDx.splice(1, 1);
+        lineStartDy.splice(1, 1);
+        lineEndDx.splice(1, 1);
+        lineEndDy.splice(1, 1);
 
-        lineColor.push(random(0, numberoflines), 1);
+        lineColor.splice(1, 1);
     }
 }
