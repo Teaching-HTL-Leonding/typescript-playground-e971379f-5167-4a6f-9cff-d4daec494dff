@@ -24,7 +24,8 @@ let minColor = 0;               // Lower bound of random hue value
 let maxColor = 0;             // Upper bound of random hue value
 
 function setup() {
-    for (let i = 0, num = ""; i < CONFIGURATION.length; i++) {
+    let num = "";
+    for (let i = 0; i < CONFIGURATION.length; i++) {
         if (CONFIGURATION[i] === ";") {
             numberoflines = parseInt(num);
             num = "";
@@ -33,10 +34,10 @@ function setup() {
             num = "";
         } else {
             num += CONFIGURATION[i];
-            maxColor = parseInt(num);
         }
 
     }
+    maxColor = parseInt(num);
     createCanvas(500, 500);
     colorMode(HSB);
 
@@ -49,8 +50,9 @@ function setup() {
     lineStartDy.push(random(0, 5));
     lineEndDx.push(random(0, 5));
     lineEndDy.push(random(0, 5));
+    lineColor.push(random(minColor, maxColor));
 
-    for (let i = 0; i < numberoflines; i++) {
+    for (let i = 1; i < numberoflines; i++) {
 
         lineStartX.push(lineStartX[0] + random(-40, 40));
         lineStartY.push(lineStartY[0] + random(-40, 40));
@@ -111,11 +113,13 @@ function draw() {
     line(35, 20, 35, 50);
     line(80, 35, 110, 35);
 
+    text(numberoflines, 10, 200);
+
 }
 
 
 function mouseClicked() {
-    if (mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <= 60 && numberoflines > 1 && numberoflines <= numberoflinesmax) {
+    if (mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
         lineStartX.push(lineStartX[0] + random(-40, 40));
         lineStartY.push(lineStartY[0] + random(-40, 40));
         lineEndX.push(lineEndX[0] + random(-40, 40));
@@ -127,18 +131,23 @@ function mouseClicked() {
         lineEndDy.push(lineEndDy[0]);
 
         lineColor.push(random(minColor, maxColor));
+        numberoflines++;
+    }
 
-    } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines > 1 && numberoflines <= numberoflinesmax) {
-        lineStartX.splice(lineStartX.length - 1, 1);
-        lineStartY.splice(lineStartY.length - 1, 1);
-        lineEndX.splice(lineEndX.length - 1, 1);
-        lineEndY.splice(lineEndY.length - 1, 1);
+    if (numberoflines != 1) {
+        if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
+            lineStartX.splice(lineStartX.length - 1, 1);
+            lineStartY.splice(lineStartY.length - 1, 1);
+            lineEndX.splice(lineEndX.length - 1, 1);
+            lineEndY.splice(lineEndY.length - 1, 1);
 
-        lineStartDx.splice(lineStartDx.length - 1, 1);
-        lineStartDy.splice(lineStartDy.length - 1, 1);
-        lineEndDx.splice(lineEndDx.length - 1, 1);
-        lineEndDy.splice(lineEndDy.length - 1, 1);
+            lineStartDx.splice(lineStartDx.length - 1, 1);
+            lineStartDy.splice(lineStartDy.length - 1, 1);
+            lineEndDx.splice(lineEndDx.length - 1, 1);
+            lineEndDy.splice(lineEndDy.length - 1, 1);
 
-        lineColor.splice(lineColor.length - 1, 1);
+            lineColor.splice(lineColor.length - 1, 1);
+            numberoflines--;
+        }
     }
 }
