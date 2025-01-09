@@ -26,13 +26,23 @@ let maxColor = 360;             // Upper bound of random hue value
 function setup() {
     createCanvas(500, 500);
     colorMode(HSB);
+    let plusorminus = Math.floor(random(0,2));
+    let operator = "";
+    if(plusorminus=== 0){
+        operator = "+";
+    }else{operator ="-";}
 
     // Set random start and end position
-    for (let i = 0; i < numberoflines; i++) {
         lineStartX.push(random(50, 450));
         lineStartY.push(random(50, 450));
         lineEndX.push(random(50, 450));
         lineEndY.push(random(50, 450));
+
+    for (let i = 0; i < numberoflines; i++) {
+        lineStartX.push(lineStartX[0]  random(0, 40));
+        lineStartY.push(random(0, 40));
+        lineEndX.push(random(0, 40));
+        lineEndY.push(random(0, 40));
 
         // Set random movement
         lineStartDx.push(random(0, 5));
@@ -108,15 +118,15 @@ function mouseClicked() {
 
     } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines > 1 && numberoflines <= numberoflinesmax) {
         numberoflines -= 1;
-        lineStartX.splice(random(0, numberoflines), 1);
-        lineStartY.splice(random(0, numberoflines), 1);
-        lineEndX.splice(random(0, numberoflines), 1);
-        lineEndY.splice(random(0, numberoflines), 1);
+        lineStartX.splice(random(1, numberoflines), 1);
+        lineStartY.splice(random(1, numberoflines), 1);
+        lineEndX.splice(random(1, numberoflines), 1);
+        lineEndY.splice(random(1, numberoflines), 1);
 
-        lineStartDx.splice(random(0, numberoflines), 1);
-        lineStartDy.splice(random(0, numberoflines), 1);
-        lineEndDx.splice(random(0, numberoflines), 1);
-        lineEndDy.splice(random(0, numberoflines), 1);
+        lineStartDx.splice(random(1, numberoflines), 1);
+        lineStartDy.splice(random(1, numberoflines), 1);
+        lineEndDx.splice(random(1, numberoflines), 1);
+        lineEndDy.splice(random(1, numberoflines), 1);
 
         lineColor.push(random(0, numberoflines), 1);
     }
