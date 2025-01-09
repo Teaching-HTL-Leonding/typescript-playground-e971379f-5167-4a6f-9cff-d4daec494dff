@@ -117,7 +117,7 @@ function draw() {
 
 
 function mouseClicked() {
-    if (mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
+    if (mouseX >= 10 && mouseX <= 60 && mouseY >= 10 && mouseY <= 60 && numberoflines < numberoflinesmax) {
         lineStartX.push(lineStartX[0] + random(-40, 40));
         lineStartY.push(lineStartY[0] + random(-40, 40));
         lineEndX.push(lineEndX[0] + random(-40, 40));
@@ -133,7 +133,7 @@ function mouseClicked() {
     }
 
     if (numberoflines != 1) {
-        if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
+        if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines < numberoflinesmax) {
             lineStartX.splice(lineStartX.length - 1, 1);
             lineStartY.splice(lineStartY.length - 1, 1);
             lineEndX.splice(lineEndX.length - 1, 1);
