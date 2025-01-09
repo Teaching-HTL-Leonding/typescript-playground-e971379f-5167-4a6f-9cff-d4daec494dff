@@ -113,8 +113,6 @@ function draw() {
     line(35, 20, 35, 50);
     line(80, 35, 110, 35);
 
-    text(numberoflines, 10, 200);
-
 }
 
 
