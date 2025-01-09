@@ -103,7 +103,10 @@ function mouseClicked() {
         lineStartDy.push(random(0, 5));
         lineEndDx.push(random(0, 5));
         lineEndDy.push(random(0, 5));
-    } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines <= numberoflinesmax) {
+
+        lineColor.push(random(minColor, maxColor));
+
+    } else if (mouseX >= 70 && mouseX <= 120 && mouseY >= 10 && mouseY <= 60 && numberoflines > 1 && numberoflines <= numberoflinesmax) {
         numberoflines -= 1;
         lineStartX.splice(random(0, numberoflines), 1);
         lineStartY.splice(random(0, numberoflines), 1);
@@ -114,5 +117,7 @@ function mouseClicked() {
         lineStartDy.splice(random(0, numberoflines), 1);
         lineEndDx.splice(random(0, numberoflines), 1);
         lineEndDy.splice(random(0, numberoflines), 1);
+
+        lineColor.push(random(0, numberoflines), 1);
     }
 }
