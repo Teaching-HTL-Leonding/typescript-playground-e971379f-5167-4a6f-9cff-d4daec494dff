@@ -48,14 +48,15 @@ function draw() {
 
     // Uncomment the following lines to zoom out. This will make it easier for you
     // to see how the background images move out of the visible area when you press the cursor keys.
-    scale(0.5);
-    translate(width / 2, height / 2);
+    //scale(0.5);
+    //translate(width / 2, height / 2);
 
     push();
 
     // Translate the background images according to the current scroll position
-   
+    if(scrollPosition < scaledImageWidth && scrollPosition > -scaledImageWidth){
     translate(scrollPosition, 0);
+    }
 
     // From here on, the code is the same as in the previous example
     translate(0, (height - scaledImageHeight) / 2);
@@ -70,9 +71,9 @@ function draw() {
     // Uncomment the following lines to draw a rectangle around the canvas. This will help you to see
     // how the background images move out of the visible area when you press the cursor keys. Use
     // these lines of code together with the commented _scale()_ and _translate()_ functions above.
-    push();
-    noFill();
-    stroke("red");
-    rect(0, 0, width, height);
-    pop();
+    //push();
+    //noFill();
+    //stroke("red");
+    //rect(0, 0, width, height);
+    //pop();
 }
