@@ -2,6 +2,7 @@ const THEME_IX = 2;
 
 const images: p5.Image[] = [];
 const wormimages: p5.Image[] = [];
+let worm: p5.Image;
 
 let backgroundScale = 1;
 let scaledImageWidth = 0;
@@ -18,7 +19,8 @@ function preload() {
         images.push(image);
     }
     for (let i = 0; i < 40; i++) {
-        wormimages.push(loadImage(`${BASE_URL}/worm/Moving_${i.toString}.png`))
+        worm = (loadImage(`${BASE_URL}/worm/Moving_${i.toString}.png`));
+        wormimages.push(worm);
     }
 }
 
@@ -59,8 +61,9 @@ function draw() {
         image(img, scaledImageWidth, 0, scaledImageWidth, scaledImageHeight);
     }
 
-    image()
-
+    for (let i = 0; i < wormimages.length; i++) {
+        image(worm[i], width / 2, height / 2);
+    }
 
     pop();
 
@@ -79,6 +82,7 @@ function draw() {
     noStroke();
     textSize(10);
     textAlign(LEFT, TOP);
+    text(`Worm position (x):250`, 10, 40);
     text(`Scroll position (x): ${scrollPosition}`, 10, 10);
     pop();
 }
