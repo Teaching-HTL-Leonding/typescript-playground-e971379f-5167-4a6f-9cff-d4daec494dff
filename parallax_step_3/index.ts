@@ -53,8 +53,6 @@ function draw() {
 
     push();
 
-    // Translate the background images according to the current scroll position
-    translate(scrollPosition, 0);
 
     // From here on, the code is the same as in the previous example
     translate(0, (height - scaledImageHeight) / 2);
