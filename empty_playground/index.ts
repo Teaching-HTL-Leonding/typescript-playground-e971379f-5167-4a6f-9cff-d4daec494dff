@@ -3,16 +3,17 @@ function setup() {
     background("black");
 
     for (let i = 0; i < 3; i++) {
-        drawCircle("yellow");
+        drawCircle("yellow", "red");
     }
 }
 
 function mouseClicked() {
-    drawCircle("aqua");
+    drawCircle("lime", "aqua");
 }
 
-function drawCircle(color: string) {
-    stroke("black");
+function drawCircle(color: string, colorStroke:string) {
+    stroke(colorStroke);
+    strokeWeight(4);
     fill(color);
     let x = random(0, 400);
     let y = random(0, 400);
