@@ -27,41 +27,43 @@ function drawAxes() {
   strokeWeight(2);
   stroke("black");
   line(30, 25, 30, 225);
-  line(30, 200, 30*13, 200);
+  line(30, 200, 30 * 13, 200);
   // <<< Add code to draw X and Y axes here
 }
 
 function drawYLabels() {
   textAlign(RIGHT, CENTER);
-    textSize(11);
-  for (let i = 1, num = 35; i <= 9; i++,num-=5){
-  strokeWeight(2);
-  line(25, 25 * i, 35, 25 * i);
-  strokeWeight(0.1);
-  text(num, 20, 25*i);
+  textSize(11);
+  for (let i = 1, num = 35; i <= 9; i++, num -= 5) {
+    strokeWeight(2);
+    line(25, 25 * i, 35, 25 * i);
+    strokeWeight(0.1);
+    text(num, 20, 25 * i);
   }
   // <<< Add code to draw labels for the Y axis here
 }
 
 function drawXLabels() {
-  for(let i = 0; i<=13; i++){
-    if(i>1){
-    strokeWeight(2);
-    line(30*i, 195, 30*i,205);}
+  for (let i = 0; i <= 13; i++) {
+    if (i > 1) {
+      strokeWeight(2);
+      line(30 * i, 195, 30 * i, 205);
+    }
     textAlign(CENTER, CENTER);
     textSize(9);
     strokeWeight(0.1);
-    text(MONTHS[i], 45+30*i, 190);
+    text(MONTHS[i], 45 + 30 * i, 190);
   }
   // <<< Add code to draw labels for the X axis here
 }
 
 function drawTemperatures(temperatures: number[]) {
   push();
-  for(let i = 0; i<= AVG_TEMP_JOHANNESBURG.length; i++){
+  for (let i = 0; i <= 12; i++) {
+    temperatures.push(AVG_TEMP_JOHANNESBURG[i]);
     fill("orange");
     noStroke();
-    rect(35 + 30*i, 200, 20, -AVG_TEMP_JOHANNESBURG[i]*5);
+    rect(35 + 30 * i, 200, 20, -temperatures[i] * 5);
   }
   pop();
   // <<< Add code to draw the temperatures here
