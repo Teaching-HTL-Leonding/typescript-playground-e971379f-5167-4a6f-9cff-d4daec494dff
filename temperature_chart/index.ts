@@ -13,7 +13,7 @@ const MONTHS: string[] = [
 function setup() {
   createCanvas(460, 300);
   // <<< Call the functions in the following order:
-  drawTemperatures([]);
+  drawTemperatures(AVG_TEMP_JOHANNESBURG);
   drawAxes();
   drawYLabels();
   drawXLabels();
@@ -60,11 +60,11 @@ function drawXLabels() {
 function drawTemperatures(temperatures: number[]) {
   push();
   for (let i = 0; i <= 12; i++) {
-    temperatures.push(AVG_TEMP_JOHANNESBURG[i]);
     fill("orange");
     noStroke();
     rect(35 + 30 * i, 200, 20, -temperatures[i] * 5);
   }
+
   pop();
   // <<< Add code to draw the temperatures here
 }
