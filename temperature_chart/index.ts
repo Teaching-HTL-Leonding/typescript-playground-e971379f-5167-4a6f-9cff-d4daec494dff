@@ -37,7 +37,7 @@ function drawYLabels() {
   for (let i = 1, num = 35; i <= 9; i++,num-=5){
   strokeWeight(2);
   line(25, 25 * i, 35, 25 * i);
-  strokeWeight(0.2);
+  strokeWeight(0.1);
   text(num, 20, 25*i);
   }
   // <<< Add code to draw labels for the Y axis here
@@ -45,10 +45,12 @@ function drawYLabels() {
 
 function drawXLabels() {
   for(let i = 0; i<=13; i++){
+    if(i>1){
     strokeWeight(2);
-    line(30*i, 195, 30*i,205);
+    line(30*i, 195, 30*i,205);}
     textAlign(CENTER, CENTER);
-    strokeWeight(0.2);
+    textSize(9);
+    strokeWeight(0.1);
     text(MONTHS[i], 45+30*i, 190);
   }
   // <<< Add code to draw labels for the X axis here
