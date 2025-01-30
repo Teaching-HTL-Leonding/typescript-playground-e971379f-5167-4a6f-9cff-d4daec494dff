@@ -23,8 +23,6 @@ function draw() {
   for (let i = 0; i < circles_diameter.length; i++) {
     circle(circles_x[i], circles_y[i], circles_diameter[i]);
   }
-  fill("black");
-  rect(0, 0, 30, 30);
   fill("white");
   noStroke();
   textAlign(LEFT, TOP);
@@ -40,6 +38,11 @@ function mouseClicked() {
       points++;
     }
   }
+}
+function gameover() {
+  clearInterval(circle_interval);
+  textAlign(CENTER,CENTER);
+  text("Game over", width/2, height/2);
 }
 
 function levels() {
