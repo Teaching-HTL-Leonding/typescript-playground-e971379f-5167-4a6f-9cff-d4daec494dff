@@ -11,7 +11,6 @@ let points = 0;
 function setup() {
   createCanvas(300, 300);
   colorMode(HSB);
-
   addRandomCircle();
   circle_interval = setInterval(addRandomCircle, waiting_time);
   level_interval = setInterval(levels, 10000);
@@ -26,7 +25,12 @@ function draw() {
   fill("white");
   noStroke();
   textAlign(LEFT, TOP);
+  textSize(10);
   text(`Score: ${points}`, 10, 10);
+
+  if(circles_diameter.length >=10){
+    gameover();
+  }
 }
 
 function mouseClicked() {
@@ -41,19 +45,28 @@ function mouseClicked() {
 }
 function gameover() {
   clearInterval(circle_interval);
+  clearInterval(level_interval);
+  fill("#272727");
+  rect(50, 50, width-100, height-100);
   textAlign(CENTER,CENTER);
-  text("Game over", width/2, height/2);
+  textSize(30);
+  fill("white");
+  noStroke();
+  text("✨", width/2, height/2-30);
+  text("GAME OVER", width/2, height/2);
+  textSize(20);
+  text(`Final score: ${points}`, width/2, height/2 + 30);
 }
 
 function levels() {
   clearInterval(circle_interval);
-  waiting_time = waiting_time / 2;
+  waiting_time/= 2;
   circle_interval = setInterval(addRandomCircle, waiting_time);
 }
 
 function addRandomCircle() {
   circles_diameter.push(random(10, 50));
-  circles_x.push(random(width));
+  circles_x.push(random(width)); 
   circles_y.push(random(height));
 }
 
