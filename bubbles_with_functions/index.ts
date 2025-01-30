@@ -49,10 +49,11 @@ function gameover() {
   fill("#272727");
   rect(50, 50, width-100, height-100);
   textAlign(CENTER,CENTER);
-  textSize(30);
   fill("white");
   noStroke();
-  text("✨", width/2, height/2-30);
+  textSize(35);
+  text("✨", width/2, height/2-40);
+  textSize(25);
   text("GAME OVER", width/2, height/2);
   textSize(20);
   text(`Final score: ${points}`, width/2, height/2 + 30);
