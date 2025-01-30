@@ -13,14 +13,8 @@ function setup() {
   colorMode(HSB);
 
   addRandomCircle();
-  if(millis() <10000){
   circle_interval = setInterval(addRandomCircle, waiting_time);
-  }
-  if(millis()> 10000){
-    clearInterval(circle_interval);
-    level_interval= setInterval(addRandomCircle, waiting_time/2);
-  }
-
+  level_interval = setInterval(levels, 10000);
 }
 
 function draw() {
@@ -33,8 +27,8 @@ function draw() {
   rect(0, 0, 30, 30);
   fill("white");
   noStroke();
-  textAlign(LEFT,TOP);
-  text(points, 10, 10);
+  textAlign(LEFT, TOP);
+  text(`Score: ${points}`, 10, 10);
 }
 
 function mouseClicked() {
@@ -46,6 +40,12 @@ function mouseClicked() {
       points++;
     }
   }
+}
+
+function levels() {
+  clearInterval(circle_interval);
+  waiting_time = waiting_time / 2;
+  circle_interval = setInterval(addRandomCircle, waiting_time);
 }
 
 function addRandomCircle() {
