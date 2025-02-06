@@ -18,8 +18,7 @@
 * * 10 wrong: GAME OVER
 */
 function drawSnowman(numberOfWrongGuesses: number) {
-    if(numberOfWrongGuesses < 11)
-{    // Set center of X axis
+    // Set center of X axis
     translate(130, 0);
 
 
@@ -28,8 +27,10 @@ function drawSnowman(numberOfWrongGuesses: number) {
     stroke("black");
     strokeWeight(2);
     fill("aliceblue")
-    circle(0, 350, 250);
     if (numberOfWrongGuesses < 10) {
+        circle(0, 350, 250);
+    }
+    if (numberOfWrongGuesses < 9) {
         circle(0, 175, 150);
     }
     pop();
@@ -38,10 +39,10 @@ function drawSnowman(numberOfWrongGuesses: number) {
     push();
     noStroke();
     fill("black");
-    if (numberOfWrongGuesses < 7) {
+    if (numberOfWrongGuesses < 6) {
         circle(-25, 150, 25);
     }
-    if (numberOfWrongGuesses < 8) {
+    if (numberOfWrongGuesses < 7) {
         circle(25, 150, 25);
     }
     pop();
@@ -50,7 +51,7 @@ function drawSnowman(numberOfWrongGuesses: number) {
     push();
     noStroke();
     fill("orange");
-    if (numberOfWrongGuesses < 5) {
+    if (numberOfWrongGuesses < 4) {
         triangle(0, 195, 0, 165, 40, 180);
     }
     pop();
@@ -60,19 +61,28 @@ function drawSnowman(numberOfWrongGuesses: number) {
     fill("black");
     translate(0, 180);
     rotate(45);
-
-    for (let i = 0; i < 6; i++) {
-        if (numberOfWrongGuesses < 4) {
-            circle(40, 0, 12);
-            rotate(18);
-        }
+    let mouthstart = 0;
+    if (numberOfWrongGuesses < 3) {
+        mouthstart = 3;
+    } else if (numberOfWrongGuesses < 5) {
+        mouthstart = 6
+    }
+    for (let i = mouthstart; i < 6; i++) {
+        circle(40, 0, 12);
+        rotate(18);
 
     }
     pop();
 
     // Knobs
     push();
-    for (let i = 0; i < 6; i++) {
+    let knobsstart = 0;
+    if (numberOfWrongGuesses < 1) {
+        knobsstart = 3;
+    } else if (numberOfWrongGuesses < 2) {
+        knobsstart = 0;
+    }
+    for (let i = 0; i < knobsstart; i++) {
         noStroke();
         fill("black");
         circle(0, 275, 15);
@@ -84,10 +94,10 @@ function drawSnowman(numberOfWrongGuesses: number) {
     push();
     noStroke();
     fill("black");
-    if(numberOfWrongGuesses < 9){
-    rect(-85, 110, 170, 10);
-    rect(-50, 50, 100, 60);
+    if (numberOfWrongGuesses < 8) {
+        rect(-85, 110, 170, 10);
+        rect(-50, 50, 100, 60);
     }
     pop();
-    }    
+
 }
