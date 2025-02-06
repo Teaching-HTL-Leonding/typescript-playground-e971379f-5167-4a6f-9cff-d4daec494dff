@@ -13,7 +13,9 @@
 function getInitialCurrentWord(wordToGuess: string): string {
     let currentWordUnderscores: string = "";
     for (let i = 0; i < wordToGuess.length; i++) {
-        currentWordUnderscores += "_";
+        if (wordToGuess[i] === " ") {
+            currentWordUnderscores += " ";
+        } else { currentWordUnderscores += "_"; }
     }
 
     return currentWordUnderscores;
