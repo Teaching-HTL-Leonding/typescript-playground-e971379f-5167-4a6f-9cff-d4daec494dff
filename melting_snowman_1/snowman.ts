@@ -18,10 +18,8 @@
 * * 10 wrong: GAME OVER
 */
 function drawSnowman(numberOfWrongGuesses: number) {
-    let mouthstart = 0;
     // Set center of X axis
     translate(130, 0);
-
 
     // Body
     push();
@@ -62,6 +60,7 @@ function drawSnowman(numberOfWrongGuesses: number) {
     fill("black");
     translate(0, 180);
     rotate(45);
+    let mouthstart = 0;
     if (numberOfWrongGuesses >= 5) {
         mouthstart = 6;
     } else if (numberOfWrongGuesses >= 3) {
