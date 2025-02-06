@@ -18,8 +18,10 @@
 * * 10 wrong: GAME OVER
 */
 function drawSnowman(numberOfWrongGuesses: number) {
-    // Set center of X axis
+    if(numberOfWrongGuesses < 11)
+{    // Set center of X axis
     translate(130, 0);
+
 
     // Body
     push();
@@ -27,22 +29,30 @@ function drawSnowman(numberOfWrongGuesses: number) {
     strokeWeight(2);
     fill("aliceblue")
     circle(0, 350, 250);
-    circle(0, 175, 150);
+    if (numberOfWrongGuesses < 10) {
+        circle(0, 175, 150);
+    }
     pop();
 
     // Eyes
     push();
     noStroke();
     fill("black");
-    circle(-25, 150, 25);
-    circle(25, 150, 25);
+    if (numberOfWrongGuesses < 7) {
+        circle(-25, 150, 25);
+    }
+    if (numberOfWrongGuesses < 8) {
+        circle(25, 150, 25);
+    }
     pop();
 
     // Nose
     push();
     noStroke();
     fill("orange");
-    triangle(0, 195, 0, 165, 40, 180);
+    if (numberOfWrongGuesses < 5) {
+        triangle(0, 195, 0, 165, 40, 180);
+    }
     pop();
 
     // Mouth
@@ -50,9 +60,13 @@ function drawSnowman(numberOfWrongGuesses: number) {
     fill("black");
     translate(0, 180);
     rotate(45);
+
     for (let i = 0; i < 6; i++) {
-        circle(40, 0, 12);
-        rotate(18);
+        if (numberOfWrongGuesses < 4) {
+            circle(40, 0, 12);
+            rotate(18);
+        }
+
     }
     pop();
 
@@ -70,7 +84,10 @@ function drawSnowman(numberOfWrongGuesses: number) {
     push();
     noStroke();
     fill("black");
+    if(numberOfWrongGuesses < 9){
     rect(-85, 110, 170, 10);
     rect(-50, 50, 100, 60);
+    }
     pop();
+    }    
 }
