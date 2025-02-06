@@ -18,6 +18,7 @@
 * * 10 wrong: GAME OVER
 */
 function drawSnowman(numberOfWrongGuesses: number) {
+    let mouthstart = 0;
     // Set center of X axis
     translate(130, 0);
 
@@ -61,11 +62,10 @@ function drawSnowman(numberOfWrongGuesses: number) {
     fill("black");
     translate(0, 180);
     rotate(45);
-    let mouthstart = 0;
-    if (numberOfWrongGuesses < 3) {
+    if (numberOfWrongGuesses >= 5) {
+        mouthstart = 6;
+    } else if (numberOfWrongGuesses >= 3) {
         mouthstart = 3;
-    } else if (numberOfWrongGuesses < 5) {
-        mouthstart = 6
     }
     for (let i = mouthstart; i < 6; i++) {
         circle(40, 0, 12);
@@ -77,12 +77,12 @@ function drawSnowman(numberOfWrongGuesses: number) {
     // Knobs
     push();
     let knobsstart = 0;
-    if (numberOfWrongGuesses < 1) {
+    if (numberOfWrongGuesses >= 2) {
+        knobsstart = 6;
+    } else if (numberOfWrongGuesses >= 1) {
         knobsstart = 3;
-    } else if (numberOfWrongGuesses < 2) {
-        knobsstart = 0;
     }
-    for (let i = 0; i < knobsstart; i++) {
+    for (let i = knobsstart; i < 6; i++) {
         noStroke();
         fill("black");
         circle(0, 275, 15);
