@@ -21,6 +21,11 @@ function getInitialCurrentWord(wordToGuess: string): string {
     return currentWordUnderscores;
 }
 
+function preload() {
+    font = loadFont("https://cddataexchange.blob.core.windows.net/images/SyneMono-Regular.ttf");
+
+}
+
 /**
  * Handles a guess from a user
  * 
@@ -35,9 +40,16 @@ function getInitialCurrentWord(wordToGuess: string): string {
  * characters in currentWordStatus must be revealed.
  */
 function guessKey(key: string, wordToGuess: string, currentWordStatus: string): string {
-    // <<< Add code here
+    let newWordStatus = "";
 
-    return ""; // Placeholder, remove this line once you added your code
+    for(let i= 0; i <wordToGuess.length; i++){
+        if(key === wordToGuess[i]){
+            newWordStatus += wordToGuess[i];
+        } else{
+            newWordStatus += currentWordStatus[i];
+        }
+    }
+    return newWordStatus; // Placeholder, remove this line once you added your code
 }
 
 /**
@@ -55,5 +67,13 @@ function guessKey(key: string, wordToGuess: string, currentWordStatus: string): 
  * * "n wrong guesses" otherwise ("n" is number of wrong guesses).
  */
 function drawResult(win: boolean, wrongGuesses: number) {
-    // <<< Add code here
+    
+    if(wrongGuesses === MAX_WRONG_GUESSES){
+        background("aliceblue");
+        fill("red");
+        noStroke();
+        textAlign(CENTER,CENTER);
+        textSize(50);
+        text("Game Over", width/2, height/2);
+    }
 }
