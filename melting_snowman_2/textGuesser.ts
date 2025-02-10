@@ -36,9 +36,11 @@ function getInitialCurrentWord(wordToGuess: string): string {
  */
 function guessKey(key: string, wordToGuess: string, currentWordStatus: string): string {
     let newWordStatus = "";
-
+    let lowerCaseWord: string;
+    lowerCaseWord = wordToGuess.toLowerCase();
+    
     for(let i= 0; i <wordToGuess.length; i++){
-        if(key === wordToGuess[i]){
+        if(key === lowerCaseWord[i]){
             newWordStatus += wordToGuess[i];
         } else{
             newWordStatus += currentWordStatus[i];
