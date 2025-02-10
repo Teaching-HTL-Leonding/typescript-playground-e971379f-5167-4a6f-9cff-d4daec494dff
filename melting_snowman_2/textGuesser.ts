@@ -21,11 +21,6 @@ function getInitialCurrentWord(wordToGuess: string): string {
     return currentWordUnderscores;
 }
 
-function preload() {
-    font = loadFont("https://cddataexchange.blob.core.windows.net/images/SyneMono-Regular.ttf");
-
-}
-
 /**
  * Handles a guess from a user
  * 
@@ -67,13 +62,20 @@ function guessKey(key: string, wordToGuess: string, currentWordStatus: string): 
  * * "n wrong guesses" otherwise ("n" is number of wrong guesses).
  */
 function drawResult(win: boolean, wrongGuesses: number) {
-    
-    if(wrongGuesses === MAX_WRONG_GUESSES){
         background("aliceblue");
         fill("red");
         noStroke();
         textAlign(CENTER,CENTER);
         textSize(50);
+    
+    if(win === false){
         text("Game Over", width/2, height/2);
+    }else if(wrongGuesses === 0){
+    text(`No wrong guesses!`, width/2, height/2);
+    }else if(wrongGuesses === 1){
+        text("One wrong guess!", width/2, height/2);
+    }
+    else{
+        text(`${wrongGuesses} wrong guesses!`, width/2, height/2);
     }
 }
