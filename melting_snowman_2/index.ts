@@ -1,7 +1,7 @@
 const MAX_WRONG_GUESSES = 10;
 
 /** Word to guess */
-const wordToGuess = "Sch i";
+const wordToGuess = "Winterwald";
 
 /** 
  * Current word status
