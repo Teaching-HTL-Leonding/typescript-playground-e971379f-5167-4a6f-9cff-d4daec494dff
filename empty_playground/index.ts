@@ -1,23 +1,21 @@
+const values = [10, 25, 50, 33, 5];
+
 function setup() {
-    createCanvas(400, 400);
-    background("black");
-
-    for (let i = 0; i < 3; i++) {
-        drawCircle("yellow", "red");
+    createCanvas(500, 500);
+    fill("red");
+    for (let i = 0; i < values.length; i++) {
+        translate(values[i] / 2, 0);
+        circle(0, 50, values[i]);
+        translate(values[i] / 2, 0);
     }
-}
 
-function mouseClicked() {
-    drawCircle("lime", "aqua");
-}
+    resetMatrix();
+    fill("lime");
 
-function drawCircle(color: string, colorStroke:string) {
-    stroke(colorStroke);
-    strokeWeight(4);
-    fill(color);
-    let x = random(0, 400);
-    let y = random(0, 400);
-    let diameter = random(50, 250);
-    circle(x, y, diameter);
-    //console.info(x, y, diameter);
+    for (const value of values) {
+        translate(value / 2, 0);
+        circle(0, 150, value);
+        translate(value / 2, 0);
+    }
+
 }
