@@ -40,10 +40,16 @@ function draw() {
     if (keyIsDown(39) && scrollPosition > -width) {
         scrollPosition = scrollPosition - SCROLL_SPEED;
         wormFrame += 1;
+        if (wormFrame >= 40) {
+            wormFrame = 0;
+        }
 
     } else if (keyIsDown(37) && scrollPosition < width) {
         scrollPosition += SCROLL_SPEED;
-        wormFrame -= 1;
+        wormFrame += 1;
+        if (wormFrame >= 40) {
+            wormFrame = 0;
+        }
     }
 
     // Uncomment the following lines to zoom out. This will make it easier for you
@@ -68,10 +74,9 @@ function draw() {
     pop();
 
     push();
-    scale(0.2);
+    scale(0.3);
     imageMode(CENTER);
-    image(wormimages[wormFrame], width / 2, height / 2);
-
+    image(wormimages[wormFrame], 2*width, 2* height);
     pop();
     // Uncomment the following lines to draw a rectangle around the canvas. This will help you to see
     // how the background images move out of the visible area when you press the cursor keys. Use
