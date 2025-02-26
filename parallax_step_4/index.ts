@@ -1,8 +1,9 @@
-const THEME_IX = 2;
+const THEME_IX = 3;
 
 const images: p5.Image[] = [];
 const wormimages: p5.Image[] = [];
 let worm: p5.Image;
+let wormFrame: number = 0;
 
 let backgroundScale = 1;
 let scaledImageWidth = 0;
@@ -19,8 +20,9 @@ function preload() {
         images.push(image);
     }
     for (let i = 0; i < 40; i++) {
-        worm = (loadImage(`${BASE_URL}/worm/Moving_${i.toString}.png`));
-        wormimages.push(worm);
+        const imageName = `${BASE_URL}/worm/Moving_${i.toString().padStart(2, "0")}.png`;
+        const image = loadImage(imageName);
+        wormimages.push(image);
     }
 }
 
@@ -37,8 +39,11 @@ function draw() {
 
     if (keyIsDown(39) && scrollPosition > -width) {
         scrollPosition = scrollPosition - SCROLL_SPEED;
+        wormFrame += 1;
+
     } else if (keyIsDown(37) && scrollPosition < width) {
         scrollPosition += SCROLL_SPEED;
+        wormFrame -= 1;
     }
 
     // Uncomment the following lines to zoom out. This will make it easier for you
@@ -60,13 +65,14 @@ function draw() {
         image(img, 0, 0, scaledImageWidth, scaledImageHeight);
         image(img, scaledImageWidth, 0, scaledImageWidth, scaledImageHeight);
     }
-
-    for (let i = 0; i < wormimages.length; i++) {
-        image(worm[i], width / 2, height / 2);
-    }
-
     pop();
 
+    push();
+    scale(0.2);
+    imageMode(CENTER);
+    image(wormimages[wormFrame], width / 2, height / 2);
+
+    pop();
     // Uncomment the following lines to draw a rectangle around the canvas. This will help you to see
     // how the background images move out of the visible area when you press the cursor keys. Use
     // these lines of code together with the commented _scale()_ and _translate()_ functions above.
