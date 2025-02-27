@@ -28,14 +28,14 @@ function preload() {
     railroad = loadImage(`${BASE_URL}/railroad-straight.png`);
     for (let i = 0; i < imageUrls.length; i++) {
         wagon = loadImage(`${BASE_URL}/${imageUrls[i]}`);
-        train.push(wagon);
+        trainCars.push(wagon);
     }
 }
 
 function setup() {
     createCanvas(800, 550);
 
-    parseTrain(TRAIN);
+    train = parseTrain(TRAIN);
     // <<< Add code to load all images (see imageUrls in wagons.ts).
     //     Add the images to the trainCars array. After loading all image,
     //     the length of the trainCars array must be equal to the length of imageUrls.
@@ -90,11 +90,11 @@ function parseTrain(sepabbrevations: string) {
 
     for (let i = 0; i < sepabbrevations.length; i++) {
         if (sepabbrevations[i] === ",") {
-            wagons.push(train[getWagonIndex(finishedAbb)]);
+            wagons.push(trainCars[getWagonIndex(finishedAbb)]);
             finishedAbb = "";
         } else {
             finishedAbb += sepabbrevations[i];
         }
     }
-    return wagons;
+    return wagons.reverse();
 }
