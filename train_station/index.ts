@@ -98,3 +98,21 @@ function parseTrain(sepabbrevations: string) {
     }
     return wagons.reverse();
 }
+
+function parseTracks(tracks: string): p5.Image[][] {
+    let finishedAbb = "";
+    let wagons: p5.Image[] = [];
+    for (let i = 0; i < tracks.length; i++) {
+        if (tracks[i] === ",") {
+            wagons.push(trainCars[getWagonIndex(finishedAbb)]);
+            finishedAbb = "";
+        }
+        else if(tracks[i] === ";"){
+            trains.push(wagons);
+            wagons = [];
+        } else {
+            finishedAbb += tracks[i];
+        }
+
+}
+}
