@@ -76,24 +76,24 @@ function getSum(numbersString: string): number {
 * @returns The start index of the number, -1 if the number is not found
 */
 function getIndexOf(numbersString: string, number: number): number {
-
+    let num = 0; // num ++ iwo
+    let index = "";
     for (let i = 0; i < numbersString.length; i++) {
-        if (numbersString[i] === ",") { }
-    }
-    return -1; // <<< Remove this line and implement the function
-}
-
-/*function getIndexOf(numbersString: string, number: number): number {
-    let num = 0;
-    for (let i = 0; i < numbersString.length; i++) {
-        if (parseInt(numbersString[i]) === number) {
-            num = i;
-        } else if (parseInt(numbersString[i]) != number) {
+        if (numbersString[i] === ",") {
+            index = "";
+        } else {
+            index += numbersString[i];
+        }
+        if (parseInt(index) === number) {
+            num = num;
+        } else {
             num = -1;
         }
-        return num;
+        console.log(index)
     }
-*/
+    return num;
+}
+
 
 /**
 * Find the index of a number in an array
