@@ -48,14 +48,16 @@ function draw() {
     translate(850, -100);
 
     // <<< Change this code accordingly for ADVANCED requirements
+    for (let j = 1; j < 4; j++) {
+        for (let i = 0; i < 5; i++) {
+            drawRailroad(i);
+        }
 
-{    for (let i = 0; i < 5; i++) {
-        drawRailroad(i);
+        for (let ix = 0; ix < train.length; ix++) {
+            drawTrainWagon(train[ix], ix);
+        }
+        translate(200, 100);
     }
-
-    for (let ix = 0; ix < train.length; ix++) {
-        drawTrainWagon(train[ix], ix);
-    }}
 }
 
 // <<< Add additional functions here
@@ -104,12 +106,12 @@ function parseTracks(tracks: string): p5.Image[][] {
             wagons.push(trainCars[getWagonIndex(finishedAbb)]);
             finishedAbb = "";
         }
-        else if(tracks[i] === ";"){
+        else if (tracks[i] === ";") {
             trains.push(wagons);
             wagons = [];
         } else {
             finishedAbb += tracks[i];
         }
-    return trains;
-}
+        return trains;
+    }
 }
