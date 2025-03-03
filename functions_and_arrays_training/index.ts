@@ -80,18 +80,20 @@ function getIndexOf(numbersString: string, number: number): number {
     let index = "";
     for (let i = 0; i < numbersString.length; i++) {
         if (numbersString[i] === ",") {
+            if (parseInt(index) === number) {
+                return num;
+            }
             index = "";
+            num = i + 1;
         } else {
             index += numbersString[i];
         }
-        if (parseInt(index) === number) {
-            num = num;
-        } else {
-            num = -1;
-        }
-        console.log(index)
+        console.log(num)
     }
-    return num;
+    if (parseInt(index) === number) {
+        return num;
+    }
+    return -1;
 }
 
 
