@@ -36,6 +36,7 @@ function setup() {
     createCanvas(800, 550);
 
     train = parseTrain(TRAIN);
+   // trains = parseTracks(TRACKS);
     // <<< Add code to parse the TRAIN string and store the result in the 
     //     train array (base requirements) or the trains array (ADVANCED requirements).
 }
