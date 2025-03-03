@@ -54,7 +54,6 @@ function getSum(numbersString: string): number {
     let num = "";
     let sum = 0;
     for (let i = 0; i < numbersString.length; i++) {
-        console.log(num);
         if (numbersString[i] === ",") {
             sum += parseInt(num);
             num = "";
@@ -76,22 +75,21 @@ function getSum(numbersString: string): number {
 * @returns The start index of the number, -1 if the number is not found
 */
 function getIndexOf(numbersString: string, number: number): number {
-    let num = 0; // num ++ iwo
-    let index = "";
+    let index = 0; 
+    let num = "";
     for (let i = 0; i < numbersString.length; i++) {
         if (numbersString[i] === ",") {
-            if (parseInt(index) === number) {
-                return num;
+            if (parseInt(num) === number) {
+                return index;
             }
-            index = "";
-            num = i + 1;
+            num = "";
+            index = i + 1;
         } else {
-            index += numbersString[i];
+            num += numbersString[i];
         }
-        console.log(num)
     }
-    if (parseInt(index) === number) {
-        return num;
+    if (parseInt(num) === number) {
+        return index;
     }
     return -1;
 }
@@ -104,7 +102,13 @@ function getIndexOf(numbersString: string, number: number): number {
 * @returns The index of the number, -1 if the number is not found
 */
 function findIndexInArray(array: number[], number: number): number {
-    return -1; // <<< Remove this line and implement the function
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === number) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 /**
@@ -129,7 +133,32 @@ function findIndexInArray(array: number[], number: number): number {
 * * A: Ace
 */
 function decodeCCard(cardShortcode: string): string {
-    return ""; // <<< Remove this line and implement the function
+    let suites = cardShortcode[0];
+    let ranks = cardShortcode[1];
+    let suite = "";
+    let rank = "";
+    switch (suites) {
+        case "S": suite = "Spades"; break;
+        case "H": suite = "Hearts"; break;
+        case "D": suite = "Diamonds"; break;
+        case "C": suite = "Clubs"; break;
+    }
+    switch (ranks) {
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9": rank = ranks; break;
+        case "T": rank = "10"; break;
+        case "J": rank = "Jack"; break;
+        case "Q": rank = "Queen"; break;
+        case "K": rank = "King"; break;
+        case "A": rank = "Ace"; break;
+    }
+    return `${rank} of ${suite}`; // <<< Remove this line and implement the function
 }
 
 /**
