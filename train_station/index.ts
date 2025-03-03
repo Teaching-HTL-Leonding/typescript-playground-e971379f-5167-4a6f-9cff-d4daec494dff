@@ -36,10 +36,6 @@ function setup() {
     createCanvas(800, 550);
 
     train = parseTrain(TRAIN);
-    // <<< Add code to load all images (see imageUrls in wagons.ts).
-    //     Add the images to the trainCars array. After loading all image,
-    //     the length of the trainCars array must be equal to the length of imageUrls.
-
     // <<< Add code to parse the TRAIN string and store the result in the 
     //     train array (base requirements) or the trains array (ADVANCED requirements).
 }
@@ -53,13 +49,13 @@ function draw() {
 
     // <<< Change this code accordingly for ADVANCED requirements
 
-    for (let i = 0; i < 5; i++) {
+{    for (let i = 0; i < 5; i++) {
         drawRailroad(i);
     }
 
     for (let ix = 0; ix < train.length; ix++) {
         drawTrainWagon(train[ix], ix);
-    }
+    }}
 }
 
 // <<< Add additional functions here
@@ -102,6 +98,7 @@ function parseTrain(sepabbrevations: string) {
 function parseTracks(tracks: string): p5.Image[][] {
     let finishedAbb = "";
     let wagons: p5.Image[] = [];
+    // trains:p5.Image[][] =[];
     for (let i = 0; i < tracks.length; i++) {
         if (tracks[i] === ",") {
             wagons.push(trainCars[getWagonIndex(finishedAbb)]);
@@ -113,6 +110,6 @@ function parseTracks(tracks: string): p5.Image[][] {
         } else {
             finishedAbb += tracks[i];
         }
-
+    return trains;
 }
 }
