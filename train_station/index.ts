@@ -35,8 +35,8 @@ function preload() {
 function setup() {
     createCanvas(800, 550);
 
-    train = parseTrain(TRAIN);
-   // trains = parseTracks(TRACKS);
+   // train = parseTrain(TRAIN);
+     trains = parseTracks(TRACKS);
     // <<< Add code to parse the TRAIN string and store the result in the 
     //     train array (base requirements) or the trains array (ADVANCED requirements).
 }
@@ -57,7 +57,7 @@ function draw() {
         for (let ix = 0; ix < train.length; ix++) {
             drawTrainWagon(train[ix], ix);
         }
-        translate(200, 100);
+        translate(170, 70);
     }
 }
 
@@ -95,24 +95,21 @@ function parseTrain(sepabbrevations: string) {
             finishedAbb += sepabbrevations[i];
         }
     }
+    wagons.push(trainCars[getWagonIndex(finishedAbb)]);
     return wagons.reverse();
 }
 
 function parseTracks(tracks: string): p5.Image[][] {
     let finishedAbb = "";
-    let wagons: p5.Image[] = [];
-    // trains:p5.Image[][] =[];
+    let wagons: p5.Image[][] = [];
     for (let i = 0; i < tracks.length; i++) {
-        if (tracks[i] === ",") {
-            wagons.push(trainCars[getWagonIndex(finishedAbb)]);
+        if (tracks[i] === ";") {
+            wagons.push(parseTrain(finishedAbb));
             finishedAbb = "";
-        }
-        else if (tracks[i] === ";") {
-            trains.push(wagons);
-            wagons = [];
         } else {
             finishedAbb += tracks[i];
         }
-        return trains;
     }
+    wagons.push(parseTrain(finishedAbb));
+    return wagons;
 }
