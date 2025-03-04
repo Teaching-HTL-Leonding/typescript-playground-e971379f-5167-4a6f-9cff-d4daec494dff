@@ -49,13 +49,14 @@ function draw() {
     translate(850, -100);
 
     // <<< Change this code accordingly for ADVANCED requirements
-    for (let j = 1; j < 4; j++) {
+    for (const finishedAbb of trains) {
         for (let i = 0; i < 5; i++) {
             drawRailroad(i);
         }
-
-        for (let ix = 0; ix < train.length; ix++) {
-            drawTrainWagon(train[ix], ix);
+        let ix = 0;
+        for (const wagon of finishedAbb) {
+            drawTrainWagon(wagon, ix);
+            ix++;
         }
         translate(170, 70);
     }
