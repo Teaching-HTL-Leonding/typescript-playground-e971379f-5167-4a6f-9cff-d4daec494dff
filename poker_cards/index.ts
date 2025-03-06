@@ -88,7 +88,7 @@ function splitCardsString(cards: string): string[] {
             currentcard += cards[i]
         }
     }
-     cardarray.push(currentcard);
+    cardarray.push(currentcard);
     return cardarray;
 }
 
@@ -106,14 +106,14 @@ function getCardValue(card: string): number {
     let value = "0";
 
     switch (num) {
-        case "1": 
-        case "2": 
-        case "3": 
-        case "4": 
-        case "5": 
-        case "6": 
-        case "7": 
-        case "8": 
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
         case "9": value = num; break;
         case "0": value = "10"; break;
     }
@@ -211,7 +211,7 @@ function isFlush(hand: string[]): boolean {
         suites.push(card[1]);
     }
     return (suites[0] === suites[1] && suites[2] === suites[3] && suites[0] === suites[2]
-    && suites[0] === suites[4])
+        && suites[0] === suites[4])
 }
 
 /**
@@ -231,7 +231,7 @@ function isStraight(hand: string[]): boolean {
         valuearray.push(getCardValue(hand[i]));
     }
     return (valuearray[0] === valuearray[1] - 1 && valuearray[2] - 2 === valuearray[3] - 3
-        && valuearray[0] === valuearray[2] - 2 && valuearray[0]=== valuearray[4]- 4);
+        && valuearray[0] === valuearray[2] - 2 && valuearray[0] === valuearray[4] - 4);
 }
 
 /**
