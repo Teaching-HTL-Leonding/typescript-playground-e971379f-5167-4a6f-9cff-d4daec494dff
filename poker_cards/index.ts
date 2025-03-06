@@ -106,14 +106,14 @@ function getCardValue(card: string): number {
     let value = "0";
 
     switch (num) {
-        case "1": value = num; break;
-        case "2": value = num; break;
-        case "3": value = num; break;
-        case "4": value = num; break;
-        case "5": value = num; break;
-        case "6": value = num; break;
-        case "7": value = num; break;
-        case "8": value = num; break;
+        case "1": 
+        case "2": 
+        case "3": 
+        case "4": 
+        case "5": 
+        case "6": 
+        case "7": 
+        case "8": 
         case "9": value = num; break;
         case "0": value = "10"; break;
     }
