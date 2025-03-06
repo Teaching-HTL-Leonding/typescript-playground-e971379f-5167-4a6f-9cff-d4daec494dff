@@ -20,7 +20,7 @@ function setup() {
     //                 +---------- Change this line to test different hands
     //                 |           (e.g. royalFlush, straightFlush, fourOfAKind, ...)
     //                 v
-    const handString = fullHouse;
+    const handString = random;
 
     hand = splitCardsString(handString);
 }
@@ -88,6 +88,7 @@ function splitCardsString(cards: string): string[] {
             currentcard += cards[i]
         }
     }
+     cardarray.push(currentcard);
     return cardarray;
 }
 
@@ -209,7 +210,8 @@ function isFlush(hand: string[]): boolean {
         card = hand[i];
         suites.push(card[1]);
     }
-    return (suites[0] === suites[1] && suites[2] === suites[3] && suites[0] === suites[2])
+    return (suites[0] === suites[1] && suites[2] === suites[3] && suites[0] === suites[2]
+    && suites[0] === suites[4])
 }
 
 /**
@@ -229,7 +231,7 @@ function isStraight(hand: string[]): boolean {
         valuearray.push(getCardValue(hand[i]));
     }
     return (valuearray[0] === valuearray[1] - 1 && valuearray[2] - 2 === valuearray[3] - 3
-        && valuearray[0] === valuearray[2] - 2);
+        && valuearray[0] === valuearray[2] - 2 && valuearray[0]=== valuearray[4]- 4);
 }
 
 /**
@@ -310,7 +312,7 @@ function numberOfPairs(counts: number[]): number {
 * @returns true if the hand has two pairs, false otherwise
 */
 function hasTwoPairs(counts: number[]): boolean {
-        return (numberOfPairs(counts)=== 2);
+    return (numberOfPairs(counts) === 2);
 }
 
 /**
@@ -320,7 +322,7 @@ function hasTwoPairs(counts: number[]): boolean {
 * @returns true if the hand has a pair, false otherwise
 */
 function hasPair(counts: number[]): boolean {
-        return (numberOfPairs(counts)=== 1);
+    return (numberOfPairs(counts) === 1);
 }
 
 /**
@@ -332,7 +334,7 @@ function hasPair(counts: number[]): boolean {
 * A hand is a full house if it has three of a kind and a pair.
 */
 function isFullHouse(counts: number[]): boolean {
-    if(hasThreeOfAKind(counts)=== true && numberOfPairs(counts) > 0){
-    return true;
+    if (hasThreeOfAKind(counts) === true && numberOfPairs(counts) > 0) {
+        return true;
     }
 }
