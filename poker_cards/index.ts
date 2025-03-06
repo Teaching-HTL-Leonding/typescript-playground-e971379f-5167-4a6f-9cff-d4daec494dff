@@ -20,7 +20,7 @@ function setup() {
     //                 +---------- Change this line to test different hands
     //                 |           (e.g. royalFlush, straightFlush, fourOfAKind, ...)
     //                 v
-    const handString = straightFlush;
+    const handString = fullHouse;
 
     hand = splitCardsString(handString);
 }
@@ -228,8 +228,8 @@ function isStraight(hand: string[]): boolean {
     for (let i = 0; i < hand.length; i++) {
         valuearray.push(getCardValue(hand[i]));
     }
-    return(valuearray[0]=== valuearray[1]-1 && valuearray[2]-2=== valuearray[3]-3
-     && valuearray[0] === valuearray[2]-2);
+    return (valuearray[0] === valuearray[1] - 1 && valuearray[2] - 2 === valuearray[3] - 3
+        && valuearray[0] === valuearray[2] - 2);
 }
 
 /**
@@ -265,9 +265,11 @@ function isRoyalFlush(hand: string[]): boolean {
 * @returns true if the hand has four of a kind, false otherwise
 */
 function hasFourOfAKind(counts: number[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+    for (let i = 0; i < counts.length; i++) {
+        if (counts[i] === 4) {
+            return true;
+        }
+    }
 }
 
 /**
@@ -277,9 +279,11 @@ function hasFourOfAKind(counts: number[]): boolean {
 * @returns true if the hand has three of a kind, false otherwise
 */
 function hasThreeOfAKind(counts: number[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+    for (let i = 0; i < counts.length; i++) {
+        if (counts[i] === 3) {
+            return true;
+        }
+    }
 }
 
 /**
@@ -289,9 +293,14 @@ function hasThreeOfAKind(counts: number[]): boolean {
 * @returns number of pairs in the hand (e.g. 2)
 */
 function numberOfPairs(counts: number[]): number {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return 0;
+
+    let paircount = 0;
+    for (let i = 0; i < counts.length; i++) {
+        if (counts[i] === 2) {
+            paircount++;
+        }
+    }
+    return paircount;
 }
 
 /**
@@ -301,9 +310,7 @@ function numberOfPairs(counts: number[]): number {
 * @returns true if the hand has two pairs, false otherwise
 */
 function hasTwoPairs(counts: number[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+        return (numberOfPairs(counts)=== 2);
 }
 
 /**
@@ -313,9 +320,7 @@ function hasTwoPairs(counts: number[]): boolean {
 * @returns true if the hand has a pair, false otherwise
 */
 function hasPair(counts: number[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+        return (numberOfPairs(counts)=== 1);
 }
 
 /**
@@ -327,7 +332,7 @@ function hasPair(counts: number[]): boolean {
 * A hand is a full house if it has three of a kind and a pair.
 */
 function isFullHouse(counts: number[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+    if(hasThreeOfAKind(counts)=== true && numberOfPairs(counts) > 0){
+    return true;
+    }
 }
