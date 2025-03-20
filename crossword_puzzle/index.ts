@@ -109,25 +109,7 @@ function drawSolution() {
     }
     resetMatrix();
 }
-/*
-function guessKey(key: string): boolean {
-    let allLetters: string[] = [];
-    for (const word of words) {
-        for (const letter of word) {
-            for (let i = 0; i < 26; i++) {
-                if (letter !== allLetters[i]) {
-                    allLetters.push(letter);
-                }
-            }
-        }
-    }
-    for (const letter of allLetters) {
-        if (key === letter) {
-            return true;
-        }
-    }
-}
-*/
+
 
 function guessKey(key: string): boolean {
     let allLetters: string[] = [];
@@ -139,7 +121,6 @@ function guessKey(key: string): boolean {
 
         }
     }
-
 }
 
 function draw() {
