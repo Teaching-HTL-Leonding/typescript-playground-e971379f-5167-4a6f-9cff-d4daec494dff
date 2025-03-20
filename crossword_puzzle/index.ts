@@ -49,16 +49,45 @@ function setup() {
     splitCrossword();
 }
 
-function drawCrossword(){
-    stroke("black");
-    noFill();
+function drawCrossword() {
+    let i = 0;
+    strokeWeight(0.5);
+    translate(200, 10);
+    for (const word of words) {
+        push();
+        translate(cellSize * positions[i], 0);
+        for (let i = 0; i < word.length; i++) {
+            stroke("black");
+            noFill();
+            rect(0, 0, cellSize, cellSize);
+            translate(cellSize, 0);
+        }
+        pop();
+        push();
+        noStroke();
+        textSize(cellSize / 2.5);
+        fill("black");
+        textAlign(LEFT, CENTER);
+        text(descriptions[i], cellSize * 10.5, cellSize /2);
+        pop();
+        translate(0, cellSize);
+        i++;
+    }
+    resetMatrix();
+}
+
+function drawFilledCrossword() {
     let i = 0;
     translate(200, 10);
     for (const word of words) {
         push();
-        translate(cellSize*positions[i],0);
+        translate(cellSize * positions[i], 0);
         for (let i = 0; i < word.length; i++) {
-            rect(0, 0, cellSize, cellSize);
+            noStroke();
+            textSize(20);
+            fill("black");
+            textAlign(CENTER, CENTER);
+            text(word[i], cellSize / 2, cellSize / 2);
             translate(cellSize, 0);
         }
         pop();
@@ -66,14 +95,22 @@ function drawCrossword(){
         i++;
     }
     resetMatrix();
+} 
+
+function drawSolution() {
     translate(200, 10);
     fill("yellow");
-    for(let i = 0; i<solution.length; i++){
+    for (let i = 0; i < solution.length; i++) {
         rect(0, 0, cellSize, cellSize);
         translate(0, cellSize);
     }
+    resetMatrix();
 }
+function guessingLogic() {
 
+}
 function draw() {
+    drawSolution();
     drawCrossword();
+    drawFilledCrossword();
 }
