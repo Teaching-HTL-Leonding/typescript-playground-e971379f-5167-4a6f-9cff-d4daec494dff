@@ -123,6 +123,16 @@ function guessKey(key: string): boolean {
     }
 }
 
+/*
+function wrongGuesses(): number{
+    let counter = 0;
+    if(guessKey(key) === false){
+        counter ++;
+    }
+    return counter;
+}
+*/
+
 function draw() {
     drawFilledCrossword();
 }
