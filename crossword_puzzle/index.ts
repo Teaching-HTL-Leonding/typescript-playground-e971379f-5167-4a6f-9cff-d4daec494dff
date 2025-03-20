@@ -47,11 +47,11 @@ function setup() {
     createCanvas(1000, 1000);
     background("white");
     splitCrossword();
+    drawCrossword();
 }
 
 function drawCrossword() {
     let i = 0;
-    strokeWeight(0.5);
     translate(200, 10);
     for (const word of words) {
         push();
@@ -68,7 +68,7 @@ function drawCrossword() {
         textSize(cellSize / 2.5);
         fill("black");
         textAlign(LEFT, CENTER);
-        text(descriptions[i], cellSize * 10.5, cellSize /2);
+        text(descriptions[i], cellSize * 10.5, cellSize / 2);
         pop();
         translate(0, cellSize);
         i++;
@@ -87,7 +87,9 @@ function drawFilledCrossword() {
             textSize(20);
             fill("black");
             textAlign(CENTER, CENTER);
-            text(word[i], cellSize / 2, cellSize / 2);
+            if (guessKey(key) === true) {
+                text(key, cellSize / 2, cellSize / 2);
+            }
             translate(cellSize, 0);
         }
         pop();
@@ -95,7 +97,7 @@ function drawFilledCrossword() {
         i++;
     }
     resetMatrix();
-} 
+}
 
 function drawSolution() {
     translate(200, 10);
@@ -106,11 +108,39 @@ function drawSolution() {
     }
     resetMatrix();
 }
-function guessingLogic() {
+/*
+function guessKey(key: string): boolean {
+    let allLetters: string[] = [];
+    for (const word of words) {
+        for (const letter of word) {
+            for (let i = 0; i < 26; i++) {
+                if (letter !== allLetters[i]) {
+                    allLetters.push(letter);
+                }
+            }
+        }
+    }
+    for (const letter of allLetters) {
+        if (key === letter) {
+            return true;
+        }
+    }
+}
+*/
+
+function guessKey(key: string): boolean {
+    let allLetters: string[] = [];
+    for (const word of words) {
+        for (const letter of word) {
+            if (key === letter) {
+                return true;
+            }
+
+        }
+    }
 
 }
+
 function draw() {
     drawSolution();
-    drawCrossword();
-    drawFilledCrossword();
 }
