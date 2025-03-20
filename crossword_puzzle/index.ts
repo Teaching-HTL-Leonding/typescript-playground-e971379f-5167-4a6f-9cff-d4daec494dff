@@ -87,7 +87,7 @@ function drawFilledCrossword() {
             textSize(20);
             fill("black");
             textAlign(CENTER, CENTER);
-            if (guessKey(key) === true) {
+            if (guessKey(key) === true && word[i]=== key) {
                 text(key, cellSize / 2, cellSize / 2);
             }
             translate(cellSize, 0);
@@ -143,4 +143,5 @@ function guessKey(key: string): boolean {
 
 function draw() {
     drawSolution();
+    drawFilledCrossword();
 }
