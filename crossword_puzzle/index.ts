@@ -31,36 +31,49 @@ const words: string[] = [];
 const positions: number[] = [];
 const descriptions: string[] = [];
 
-const cellSize = 20;
+const cellSize = 30;
 
-function splitCrossword(){
+function splitCrossword() {
     let rows = crossword.split(`\n`);
-    for(let i = 0; i <= rows.length; i++){
-    let separateRow = rows[i].split(",");
-    words.push(separateRow[0]);
-    positions.push(parseInt(separateRow[1]));
-    descriptions.push(separateRow[2]);
-    separateRow = [];
+    for (let i = 0; i < rows.length; i++) {
+        let separateRow = rows[i].split(",");
+        words.push(separateRow[0]);
+        positions.push(parseInt(separateRow[1]));
+        descriptions.push(separateRow[2]);
     }
 }
 
-function draw(){
+function setup() {
+    createCanvas(1000, 1000);
+    background("white");
     splitCrossword();
-            noFill();
-            stroke("black");
-    for(const word of words){
+}
+
+function drawCrossword(){
+    stroke("black");
+    noFill();
+    let i = 0;
+    translate(200, 10);
+    for (const word of words) {
         push();
-        for(let i = 0; i<word.length; i++){
+        translate(cellSize*positions[i],0);
+        for (let i = 0; i < word.length; i++) {
             rect(0, 0, cellSize, cellSize);
             translate(cellSize, 0);
         }
         pop();
         translate(0, cellSize);
+        i++;
     }
-
+    resetMatrix();
+    translate(200, 10);
+    fill("yellow");
+    for(let i = 0; i<solution.length; i++){
+        rect(0, 0, cellSize, cellSize);
+        translate(0, cellSize);
+    }
 }
-function setup() {
-    createCanvas(500,500);
-    background("white");
 
+function draw() {
+    drawCrossword();
 }
