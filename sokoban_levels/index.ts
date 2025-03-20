@@ -27,19 +27,17 @@ let level: string[][] = [];
 // Tracks the maximum width of any row in the level for canvas sizing
 let maxWidth = 0;
 function preload() {
-    // Schleife über alle Bild-URLS in imagesNames
+    // Schleife über alle Bild-URLs in imagesNames.
     // --> für jedes Bild-URL: Bild laden und in images einfügen
-    for(const imageName of imageNames){
-    images.push(loadImage(imageName))
+    for (const imageName of imageNames) {
+        const img = loadImage(imageName);
+        images.push(img);
     }
 
-    for(const line of levelString.split('\n')){
-        const chars = line.split(''); 
+    for (const line of levelString.split('\n')) {
+        const chars = line.split('');
         level.push(chars);
     }
-
-    console.log(level); //stringify
-    // <<< Add code to parse the level string into a 2D array
 }
 
 /**
@@ -48,15 +46,45 @@ function preload() {
 * @returns The corresponding p5.Image object
 */
 function getBlockImageBySymbol(type: string): p5.Image {
-    // <<< Add necessary code here
-    return images[0]; // <<< Replace this code with your implementation
+    switch (type) {
+        case "X": return images[0];
+        case ".": return images[2];
+        case " ":
+        case "@": return images[1];
+        case "b": return images[3];
+        case "B": return images[4];
+    }
+    /* if (type === "X") {
+         return images[0];
+     } else if (type === ".") {
+         return images[2];
+     } else if (type === "@") {
+         return images[1];
+     } else if (type === "b") {
+         return images[3];
+     } else if (type === " ") {
+         return images[1];
+     }else if (type === "B") {
+         return images[4];
+     }*/
 }
 
 // Size of each cell in pixels
 const cellSize = 64;
 
 function setup() {
-    // <<< Add code to create a canvas sized to fit the level dimensions
-
-    // <<< Add code to draw level
+    createCanvas(1000, 1000);
+    background("white");
+    for (const row of level) {
+        push();
+        for (const cell of row) {
+            if (cell !== "_") {
+                const img = getBlockImageBySymbol(cell);
+                image(img, 0, 0, cellSize, cellSize);
+            }
+                translate(cellSize, 0);
+        }
+        pop();
+        translate(0, cellSize); // row = Zeile
+    }
 }
