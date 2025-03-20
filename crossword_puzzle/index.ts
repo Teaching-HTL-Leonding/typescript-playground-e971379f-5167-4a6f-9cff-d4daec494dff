@@ -48,6 +48,7 @@ function setup() {
     background("white");
     splitCrossword();
     drawCrossword();
+    drawSolution();
 }
 
 function drawCrossword() {
@@ -142,6 +143,5 @@ function guessKey(key: string): boolean {
 }
 
 function draw() {
-    drawSolution();
     drawFilledCrossword();
 }
