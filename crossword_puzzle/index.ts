@@ -33,6 +33,7 @@ const descriptions: string[] = [];
 
 const cellSize = 30;
 const padding = 10;
+let counter = 0;
 
 function splitCrossword() {
     let rows = crossword.split(`\n`);
@@ -45,7 +46,7 @@ function splitCrossword() {
 }
 
 function setup() {
-    createCanvas(800,800);
+    createCanvas(750, 550);
     background("white");
     splitCrossword();
     drawCrossword();
@@ -54,7 +55,7 @@ function setup() {
 
 function drawCrossword() {
     let i = 0;
-    translate(200, 10);
+    translate(200, padding);
     for (const word of words) {
         push();
         translate(cellSize * positions[i], 0);
@@ -85,11 +86,14 @@ function drawFilledCrossword() {
         push();
         translate(cellSize * positions[i], 0);
         for (let i = 0; i < word.length; i++) {
+            stroke("black");
+            noFill();
+            rect(0, 0, cellSize, cellSize);
             noStroke();
             textSize(20);
             fill("black");
             textAlign(CENTER, CENTER);
-            if (guessKey(key) === true && word[i]=== key) {
+            if (guessKey(key) === true && word[i] === key) {
                 text(key, cellSize / 2, cellSize / 2);
             }
             translate(cellSize, 0);
@@ -113,7 +117,6 @@ function drawSolution() {
 
 
 function guessKey(key: string): boolean {
-    let allLetters: string[] = [];
     for (const word of words) {
         for (const letter of word) {
             if (key === letter) {
@@ -122,23 +125,38 @@ function guessKey(key: string): boolean {
 
         }
     }
+    return false;
 }
 
-
-function wrongGuesses(): number{
-    let counter = 0;
-    if(guessKey(key) === false){
-        counter ++;
+function wrongGuesses() {
+    if (guessKey(key) === false) {
+        counter += 1;
     }
-    return counter;
+}
+
+function pressedLetters() {
+    let letters: string[] = [];
+    for(let i = 0; i < 25; i++){
+    if(guessKey(key)=== true && key !== letters[i]){
+        letters.push(key);
+    }
+    }
 }
 
 
 function draw() {
-     drawFilledCrossword();
-     fill("white");
-     noStroke();
-    rect(0,cellSize*words.length  + padding*2, width, 50);
+    let ms = 0;
+    drawFilledCrossword();
+    if(key !== "" && ms === 0){
+    wrongGuesses();
+    }
+    ms++;
+    fill("white");
+    noStroke();
+    rect(0, cellSize * words.length + padding + cellSize/2, width, 50);
     fill("red");
-    text(`${wrongGuesses()} wrong guesses`, width/2,cellSize*words.length + padding*2);
+    textSize(25);
+    textAlign(CENTER, CENTER);
+    text(`${counter} wrong guesses`,
+        width / 2, cellSize + cellSize * words.length + padding * 2);
 }
