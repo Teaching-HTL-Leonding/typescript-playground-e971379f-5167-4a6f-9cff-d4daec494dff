@@ -32,6 +32,7 @@ const positions: number[] = [];
 const descriptions: string[] = [];
 
 const cellSize = 30;
+const padding = 10;
 
 function splitCrossword() {
     let rows = crossword.split(`\n`);
@@ -44,7 +45,7 @@ function splitCrossword() {
 }
 
 function setup() {
-    createCanvas(1000, 1000);
+    createCanvas(800,800);
     background("white");
     splitCrossword();
     drawCrossword();
@@ -79,7 +80,7 @@ function drawCrossword() {
 
 function drawFilledCrossword() {
     let i = 0;
-    translate(200, 10);
+    translate(200, padding);
     for (const word of words) {
         push();
         translate(cellSize * positions[i], 0);
@@ -101,7 +102,7 @@ function drawFilledCrossword() {
 }
 
 function drawSolution() {
-    translate(200, 10);
+    translate(200, padding);
     fill("yellow");
     for (let i = 0; i < solution.length; i++) {
         rect(0, 0, cellSize, cellSize);
@@ -123,7 +124,7 @@ function guessKey(key: string): boolean {
     }
 }
 
-/*
+
 function wrongGuesses(): number{
     let counter = 0;
     if(guessKey(key) === false){
@@ -131,8 +132,13 @@ function wrongGuesses(): number{
     }
     return counter;
 }
-*/
+
 
 function draw() {
-    drawFilledCrossword();
+     drawFilledCrossword();
+     fill("white");
+     noStroke();
+    rect(0,cellSize*words.length  + padding*2, width, 50);
+    fill("red");
+    text(`${wrongGuesses()} wrong guesses`, width/2,cellSize*words.length + padding*2);
 }
