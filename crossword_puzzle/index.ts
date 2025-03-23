@@ -122,41 +122,55 @@ function guessKey(key: string): boolean {
             if (key === letter) {
                 return true;
             }
-
         }
     }
     return false;
 }
 
-function wrongGuesses() {
-    if (guessKey(key) === false) {
-        counter += 1;
-    }
-}
+let sol = solution.split("");
+let solutionProgress = [];
+let letters: string[] = [];
+let gameFinished: boolean= false;
 
-function pressedLetters() {
-    let letters: string[] = [];
-    for(let i = 0; i < 25; i++){
-    if(guessKey(key)=== true && key !== letters[i]){
+function keyPressed() {
+    if (guessKey(key) === false && key !== "") {
+        counter++;
+    }
+    if (letters.includes(key) === false) {
         letters.push(key);
+    } else if (letters.includes(key) === true) {
+        counter++;
     }
+    let i = 0;
+    for (const letter of sol) {
+        i++;
+        if (letters.includes(letter) === true) {
+            solutionProgress.push(letter);
+            sol.splice(i-1, 1);
+        }
     }
+    if (sol.length === 1) {
+        gameFinished = true;
+    }
+    console.log(solutionProgress);
+    console.log(sol);
 }
-
 
 function draw() {
-    let ms = 0;
     drawFilledCrossword();
-    if(key !== "" && ms === 0){
-    wrongGuesses();
-    }
-    ms++;
     fill("white");
     noStroke();
-    rect(0, cellSize * words.length + padding + cellSize/2, width, 50);
-    fill("red");
+    rect(0, cellSize * words.length + padding + cellSize / 2, width, 50);
     textSize(25);
     textAlign(CENTER, CENTER);
-    text(`${counter} wrong guesses`,
-        width / 2, cellSize + cellSize * words.length + padding * 2);
+    if (gameFinished === false) {
+        fill("red");
+        text(`${Math.round(counter)} wrong guesses`,
+            width / 2, cellSize + cellSize * words.length + padding * 2);
+    }
+    if(gameFinished === true) {
+        fill("green");
+        text(`You won after ${Math.round(counter)} wrong guesses`,
+            width / 2, cellSize + cellSize * words.length + padding * 2);
+    }
 }
