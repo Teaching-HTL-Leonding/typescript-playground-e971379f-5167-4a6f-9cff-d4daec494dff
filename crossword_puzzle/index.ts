@@ -168,11 +168,10 @@ function draw() {
     }
     if (gameFinished === true) {
         fill("green");
-        //if (counter === 1) {
-        //    text(`You won after ${Math.round(counter)} wrong guess`,
-        //        width / 2, cellSize + cellSize * words.length + padding * 2);
-        //} else 
-        {
+        if (counter === 1) {
+            text(`You won after ${Math.round(counter)} wrong guess`,
+                width / 2, cellSize + cellSize * words.length + padding * 2);
+        } else {
             text(`You won after ${Math.round(counter)} wrong guesses`,
                 width / 2, cellSize + cellSize * words.length + padding * 2);
         }
