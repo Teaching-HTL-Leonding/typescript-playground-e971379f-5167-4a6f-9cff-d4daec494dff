@@ -130,7 +130,7 @@ function guessKey(key: string): boolean {
 let sol = solution.split("");
 let solutionProgress = [];
 let letters: string[] = [];
-let gameFinished: boolean= false;
+let gameFinished: boolean = false;
 
 function keyPressed() {
     if (guessKey(key) === false && key !== "") {
@@ -146,14 +146,12 @@ function keyPressed() {
         i++;
         if (letters.includes(letter) === true) {
             solutionProgress.push(letter);
-            sol.splice(i-1, 1);
+            sol.splice(i - 1, 1);
         }
     }
     if (sol.length === 1) {
         gameFinished = true;
     }
-    console.log(solutionProgress);
-    console.log(sol);
 }
 
 function draw() {
@@ -168,9 +166,15 @@ function draw() {
         text(`${Math.round(counter)} wrong guesses`,
             width / 2, cellSize + cellSize * words.length + padding * 2);
     }
-    if(gameFinished === true) {
+    if (gameFinished === true) {
         fill("green");
-        text(`You won after ${Math.round(counter)} wrong guesses`,
-            width / 2, cellSize + cellSize * words.length + padding * 2);
+        //if (counter === 1) {
+        //    text(`You won after ${Math.round(counter)} wrong guess`,
+        //        width / 2, cellSize + cellSize * words.length + padding * 2);
+        //} else 
+        {
+            text(`You won after ${Math.round(counter)} wrong guesses`,
+                width / 2, cellSize + cellSize * words.length + padding * 2);
+        }
     }
 }
