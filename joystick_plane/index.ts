@@ -56,7 +56,7 @@ function draw() {
 }
 
 function distanceCalc(Ax: number, Ay: number, Bx: number, By: number): number {
-  let distance = Math.sqrt((Ax - Bx) * (Ax - Bx) + (Ay - By) * (Ay - By));
+  let distance = Math.sqrt(Math.pow(Ax - Bx,2)+ Math.pow(Ay - By,2));
   return distance;
 }
 
