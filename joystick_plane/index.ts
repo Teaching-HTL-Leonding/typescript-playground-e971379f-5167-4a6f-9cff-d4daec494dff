@@ -10,7 +10,8 @@ const joystickRadius = 50;
 const blackDotRadius = 10;
 let blackDotX = 0;
 let blackDotY = 0;
-
+let speedX = 0;
+let speedY = 0;
 
 function preload() {
   fighter = loadImage("https://cddataexchange.blob.core.windows.net/images/Spaceship.png");
@@ -37,17 +38,21 @@ function draw() {
   noStroke();
   circle(blackDotX, blackDotY, blackDotRadius * 2);
 
-  if (fighterPositionX <= width / 2 && fighterPositionX >= -width / 2) {
-    fighterPositionX -= (width / 2 - blackDotX) / 5;
-  } else if (fighterPositionX >= width / 2) {
-    fighterPositionX = width / 2;
-  } else { fighterPositionX = -width / 2 };
+  speedX = -(width / 2 - blackDotX) / 5;
+  speedY = -((height - joystickRadius) - blackDotY) / 5;
 
-  if (fighterPositionY < height / 2 && fighterPositionY > -height / 2) {
-    fighterPositionY -= ((height - joystickRadius) - blackDotY) / 5;
-  } else if (fighterPositionY >= height / 2) {
-    fighterPositionY = height / 2;
-  } else { fighterPositionY = -height / 2 };
+  let nextX = fighterPositionX + speedX;
+  let nextY = fighterPositionY + speedY;
+
+  if (nextX <= width / 2 && nextX >= -width / 2) {
+    fighterPositionX = nextX;
+  }
+  if (nextY <= height / 2 && nextY >= -height / 2) {
+    fighterPositionY = nextY;
+  }
+
+  text(`Speed: ${Math.round(speedX)}, ${Math.round(speedY)}`, 10, height - 25);
+  text(`Fighter position: ${Math.round(fighterPositionX)}, ${Math.round(fighterPositionY)}`, 10, height - 10);
 }
 
 function distanceCalc(Ax: number, Ay: number, Bx: number, By: number): number {
@@ -61,17 +66,20 @@ function mousePressed() {
     + blackDotRadius <= joystickRadius;
 
 }
-
 function mouseDragged() {
-  //if (mouseX > width / 2 - joystickRadius && mouseX < width / 2 + joystickRadius) {
-  //  if (mouseY < height && mouseY < height - joystickRadius * 2) {
+  let dx = mouseX - width / 2;
+  let dy = mouseY - (height - joystickRadius);
+  let distance = distanceCalc(width / 2, height - joystickRadius, mouseX, mouseY);
+
   if (inside) {
-    blackDotX = mouseX;
-    blackDotY = mouseY;
+    if (distance > joystickRadius) {
+      let scale = joystickRadius / distance;
+      blackDotX = width / 2 + dx * scale;
+      blackDotY = height - joystickRadius + dy * scale;
+    } else {
+      blackDotX = mouseX;
+      blackDotY = mouseY;
+    }
   }
-  console.log(Math.round(fighterPositionX), Math.round(fighterPositionY));
 }
 
-
-function mouseReleased() {
-}
