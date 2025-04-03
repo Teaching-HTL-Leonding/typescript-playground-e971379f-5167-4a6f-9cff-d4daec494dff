@@ -1,12 +1,13 @@
-let circleRad = 50;
-let targetRad = 70;
+const circleRad = 50;
+const targetRad = 70;
 let circleX = 0;
 let circleY = 0;
 let targetX = 0;
 let targetY = 0;
 let points = 0;
-let time = 5;
+let time = 60;
 let noOverlap = false;
+let inside = false;
 
 function setup() {
   createCanvas(800, 600);
@@ -17,14 +18,17 @@ function setup() {
 }
 
 function draw() {
-  if(time === 0){
+  if (time === 0) {
     gameEnd();
-  }else{
-  if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad && inside === false) {
+    return;
+  }
+  if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad &&
+    !dragging) {
     newTarget();
   } else {
     noOverlap = true;
   }
+
   background("lightgray");
 
   noFill();
@@ -35,34 +39,32 @@ function draw() {
   circle(circleX, circleY, circleRad * 2);
 
   textSize(20);
-
   textAlign(LEFT, BOTTOM);
   fill("black");
   text(`Score: ${points}`, 20, height - 20);
   textAlign(RIGHT, BOTTOM);
   text(`Time: ${time}`, width - 20, height - 20);
-  }
 }
-let inside = false;
+let dragging = false;
 function mousePressed() {
   if (calcDistance(mouseX, circleX, mouseY, circleY) < circleRad) {
-    inside = true;
+    dragging = true;
   }
 }
 
 function mouseDragged() {
-  if (inside) {
+  if (dragging) {
     circleX = mouseX;
     circleY = mouseY;
   }
 }
 
 function mouseReleased() {
-  inside = false;
-
+  dragging = false;
   if (calcDistance(targetX, circleX, targetY, circleY) + circleRad < targetRad) {
     points++;
     newTarget();
+    inside === true;
   }
 }
 
@@ -75,19 +77,19 @@ function newTarget() {
   targetY = random(targetRad, height - targetRad);
 }
 function timer() {
-  time --;
+  time--;
   time = constrain(time, 0, 60);
 }
 
 function gameEnd() {
-    noStroke();
-    fill("lightgrey");
-    rect(0, 0, width, height);
-    fill("black");
+  noStroke();
+  fill("lightgrey");
+  rect(0, 0, width, height);
 
-    textSize(50);
-    textAlign(CENTER, BOTTOM);
-    text("Game Over!", width / 2, height / 2);
-    textSize(30);
-    text(`Final Score: ${points}`, width / 2, height / 2 + 50);
+  fill("black");
+  textSize(50);
+  textAlign(CENTER, BOTTOM);
+  text("Game Over!", width / 2, height / 2);
+  textSize(30);
+  text(`Final Score: ${points}`, width / 2, height / 2 + 50);
 }
