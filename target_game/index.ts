@@ -21,13 +21,16 @@ function draw() {
     gameEnd();
     return;
   }
-  if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad &&
-    !dragging && start) {
-    newTarget();
-  } else {
-    start = false;
+  let noOverlap = false;
+  while (noOverlap === false) {
+    if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad &&
+      !dragging && start) {
+      newTarget();
+    } else {
+      noOverlap = true;
+      start = false;
+    }
   }
-
   background("lightgray");
   noFill();
   stroke("black");
@@ -73,10 +76,6 @@ function calcDistance(x1: number, x2: number, y1: number, y2: number) {
 function newTarget() {
   targetX = random(targetRad, width - targetRad);
   targetY = random(targetRad, height - targetRad);
-  if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad) {
-    targetX = random(targetRad, width - targetRad);
-    targetY = random(targetRad, height - targetRad);
-  }
 }
 function timer() {
   time--;
