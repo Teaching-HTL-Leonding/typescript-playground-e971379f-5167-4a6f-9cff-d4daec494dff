@@ -66,6 +66,7 @@ function mouseReleased() {
   if (calcDistance(targetX, circleX, targetY, circleY) + circleRad < targetRad) {
     points++;
     newTarget();
+    start = true;
   }
 }
 
