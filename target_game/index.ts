@@ -23,7 +23,7 @@ function draw() {
   }
   let noOverlap = false;
   while (noOverlap === false) {
-    if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad &&
+    if (calcDistance(targetX, circleX, targetY, circleY) <= targetRad + circleRad &&
       !dragging && start) {
       newTarget();
     } else {
