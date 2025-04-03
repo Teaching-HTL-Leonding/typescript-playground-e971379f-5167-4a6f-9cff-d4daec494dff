@@ -6,8 +6,7 @@ let targetX = 0;
 let targetY = 0;
 let points = 0;
 let time = 60;
-let noOverlap = false;
-let inside = false;
+let start = true;
 
 function setup() {
   createCanvas(800, 600);
@@ -23,14 +22,13 @@ function draw() {
     return;
   }
   if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad &&
-    !dragging) {
+    !dragging && start) {
     newTarget();
   } else {
-    noOverlap = true;
+    start = false;
   }
 
   background("lightgray");
-
   noFill();
   stroke("black");
   circle(targetX, targetY, targetRad * 2);
@@ -45,6 +43,7 @@ function draw() {
   textAlign(RIGHT, BOTTOM);
   text(`Time: ${time}`, width - 20, height - 20);
 }
+
 let dragging = false;
 function mousePressed() {
   if (calcDistance(mouseX, circleX, mouseY, circleY) < circleRad) {
@@ -64,7 +63,6 @@ function mouseReleased() {
   if (calcDistance(targetX, circleX, targetY, circleY) + circleRad < targetRad) {
     points++;
     newTarget();
-    inside === true;
   }
 }
 
@@ -75,6 +73,10 @@ function calcDistance(x1: number, x2: number, y1: number, y2: number) {
 function newTarget() {
   targetX = random(targetRad, width - targetRad);
   targetY = random(targetRad, height - targetRad);
+  if (calcDistance(targetX, circleX, targetY, circleY) < targetRad + circleRad) {
+    targetX = random(targetRad, width - targetRad);
+    targetY = random(targetRad, height - targetRad);
+  }
 }
 function timer() {
   time--;
